@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles/indexStyle.css" />
+    <link rel="stylesheet" href="assets/styles/variables.css" />
     <script
       src="https://kit.fontawesome.com/566c00e5db.js"
       crossorigin="anonymous"
@@ -16,15 +17,17 @@
     class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
   >
     <div>
-      <h1 class="text-white text-center text-9xl font-mono">
+      <h1 class="text-white text-center font-mono">
         <span
+          style="font-family: var(--font-header)"
           id="typewriter"
-          class="text-[4rem] font-headerFont text-shadow-lg text-shadow-black"
+          class="text-shadow-lg text-shadow-black text-xl sm:text-2xl md:text-4xl lg:text-6xl font-bold"
         ></span
         ><span class="cursor"></span>
       </h1>
       <h6
-        class="bg-white text-xs self-start font-headerFont text-center mt-5 text-[#ffffff31] text-shadow-2xs text-shadow-gray-800"
+        style="font-family: var(--font-normal)"
+        class="bg-white text-xs self-start font-[var(--font-header)] text-center mt-5 text-[#ffffff31] text-shadow-2xs text-shadow-gray-800 sm:text-xs"
       >
         No matter where you go, everyone's connected
       </h6>
@@ -53,9 +56,9 @@
     ></i>
     <div class="flex flex-row justify-evenly w-full mx-24 image">
       <!-- Profile 1 -->
-      <div class="relative">
+      <a class="relative" href="/routes/sandara.html">
         <div
-          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 sm:w-20 sm:w-20 md:w-34 md:h-34 border-[#B5B8A6] border-[2px] overflow-hidden"
         >
           <img
             src="../../assets/image/profile-image-one.jpg"
@@ -64,15 +67,16 @@
         </div>
 
         <h1
-          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-5 opacity-0 transition-opacity duration-300 z-[-1]"
+          style="font-family: var(--font-normal)"
+          class="font-[var(--font-header)] js-username text-2xl text-white text-center mt-3 opacity-0 transition-opacity duration-300 z-[-1]"
         >
           PRESENT
         </h1>
-      </div>
+      </a>
       <!-- Profile 2 -->
-      <div class="relative">
+      <a class="relative" href="routes/mike.html">
         <div
-          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 sm:w-20 sm:w-20 md:w-34 md:h-34 border-[#B5B8A6] border-[2px] overflow-hidden"
         >
           <img
             src="../../assets/image/profile-image-two.jpg"
@@ -81,16 +85,17 @@
         </div>
 
         <h1
-          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-10 opacity-0 transition-opacity duration-200 z-[-1]"
+          style="font-family: var(--font-normal)"
+          class="font-[var(--font-header)] js-username text-2xl text-white opacity-0 text-center mt-3 transition-opacity duration-200 z-[-1]"
         >
           DAY
         </h1>
-      </div>
+      </a>
       <!-- Profile 3 -->
 
-      <div class="relative">
+      <a class="relative" href="/routes/joseph.html">
         <div
-          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 sm:w-20 sm:w-20 md:w-34 md:h-34 border-[#B5B8A6] border-[2px] overflow-hidden"
         >
           <img
             src="../../assets/image/profile-image-three.jpg"
@@ -99,16 +104,17 @@
         </div>
 
         <h1
-          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-5 opacity-0 transition-opacity duration-200 z-[-1]"
+          style="font-family: var(--font-normal)"
+          class="font-[var(--font-header)] js-username text-2xl text-white opacity-0 text-center mt-3 text-center mt-3 transition-opacity duration-200 z-[-1]"
         >
           PRESENT
         </h1>
-      </div>
+      </a>
       <!-- Profile 4 -->
 
-      <div class="relative">
+      <a class="relative" href="/routes/leewell.html">
         <div
-          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 sm:w-20 sm:w-20 md:w-34 md:h-34 border-[#B5B8A6] border-[2px] overflow-hidden"
         >
           <img
             src="../../assets/image/profile-image-four.jpg"
@@ -117,11 +123,12 @@
         </div>
 
         <h1
-          class="js-username text-2xl font-normalFont text-white absolute bottom-[-40px] left-10 opacity-0 transition-opacity duration-200 z-[-1]"
+          style="font-family: var(--font-normal)"
+          class="js-username text-2xl font-normalFont text-white bottom-[-40px] opacity-0 text-center mt-3 transition-opacity duration-200 z-[-1]"
         >
           TIME
         </h1>
-      </div>
+      </a>
     </div>
 
     <script src="./assets/scripts/indexScript.js"></script>

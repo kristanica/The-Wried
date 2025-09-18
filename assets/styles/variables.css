@@ -1,0 +1,12 @@
+:root {
+  --font-header: "headerFont", sans-serif;
+  --font-normal: "normalFont", sans-serif;
+}
+@font-face {
+  font-family: headerFont;
+  src: url("../../assets/fonts/lain-headerFont.ttf");
+}
+@font-face {
+  font-family: normalFont;
+  src: url("../../assets/fonts/lain-normalFont.ttf");
+}
