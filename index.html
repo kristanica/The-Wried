@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/styles/indexStyle.css" />
+    <script
+      src="https://kit.fontawesome.com/566c00e5db.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body
+    class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
+  >
+    <div>
+      <h1 class="text-white text-center text-9xl font-mono">
+        <span
+          id="typewriter"
+          class="text-[4rem] font-headerFont text-shadow-lg text-shadow-black"
+        ></span
+        ><span class="cursor"></span>
+      </h1>
+      <h6
+        class="bg-white text-xs self-start font-headerFont text-center mt-5 text-[#ffffff31] text-shadow-2xs text-shadow-gray-800"
+      >
+        No matter where you go, everyone's connected
+      </h6>
+    </div>
+
+    <div
+      id="js-overlay"
+      class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 z-[-1]"
+    ></div>
+    <video
+      autoplay
+      muted
+      loop
+      id="js-background-video"
+      class="absolute inset-0 bg-cover bg-center opacity-100 min-h-screen overflow-hidden min-w-screen transition-opacity duration-500 z-[-1]"
+    >
+      <source
+        src="/assets/video/lain-background-video-test.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <i
+      id="js-volume-button"
+      class="fa-solid fa-volume-high text-white absolute cursor-pointer top-10 right-10"
+      style="font-size: 20px"
+    ></i>
+    <div class="flex flex-row justify-evenly w-full mx-24 image">
+      <!-- Profile 1 -->
+      <div class="relative">
+        <div
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+        >
+          <img
+            src="../../assets/image/profile-image-one.jpg"
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1
+          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-5 opacity-0 transition-opacity duration-300 z-[-1]"
+        >
+          PRESENT
+        </h1>
+      </div>
+      <!-- Profile 2 -->
+      <div class="relative">
+        <div
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+        >
+          <img
+            src="../../assets/image/profile-image-two.jpg"
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1
+          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-10 opacity-0 transition-opacity duration-200 z-[-1]"
+        >
+          DAY
+        </h1>
+      </div>
+      <!-- Profile 3 -->
+
+      <div class="relative">
+        <div
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+        >
+          <img
+            src="../../assets/image/profile-image-three.jpg"
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1
+          class="font-normalFont js-username text-2xl text-white absolute bottom-[-40px] left-5 opacity-0 transition-opacity duration-200 z-[-1]"
+        >
+          PRESENT
+        </h1>
+      </div>
+      <!-- Profile 4 -->
+
+      <div class="relative">
+        <div
+          class="js-mini-profile cursor-pointer hover:scale-105 transition-all duration-300 w-24 h-24 rounded-full border-[#B5B8A6] border-[2px] overflow-hidden"
+        >
+          <img
+            src="../../assets/image/profile-image-four.jpg"
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1
+          class="js-username text-2xl font-normalFont text-white absolute bottom-[-40px] left-10 opacity-0 transition-opacity duration-200 z-[-1]"
+        >
+          TIME
+        </h1>
+      </div>
+    </div>
+
+    <script src="./assets/scripts/indexScript.js"></script>
+  </body>
+</html>
