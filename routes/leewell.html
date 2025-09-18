@@ -6,14 +6,109 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles/indexStyle.css" />
-    <link rel="stylesheet" href="assets/styles/variables.css" />
+    <link rel="stylesheet" href="../assets/styles/variables.css" />
     <script
       src="https://kit.fontawesome.com/566c00e5db.js"
       crossorigin="anonymous"
     ></script>
   </head>
+  <style>
+    @keyframes glitchEffect {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+      20% {
+        text-shadow: -2px -2px lime, 2px 2px #69586b;
+      }
+      40% {
+        text-shadow: 2px 2px #f213de, -2px -2px #c73deb;
+      }
+      60% {
+        text-shadow: -2px 2px cyan, 2px -2px #02c2cc;
+      }
+      100% {
+        text-shadow: none;
+      }
+    }
 
+    #typewriter {
+      animation: glitchEffect 1s infinite reverse;
+    }
+  </style>
   <body
-    class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
-  ></body>
+    class="relative bg-[#0E0E0E] flex items-center flex-col overflow-hidden [100px] justify-center items-center min-h-screen"
+  >
+    <video
+      autoplay
+      muted
+      loop
+      id="js-background-video"
+      class="absolute inset-0 blur-lg bg-cover bg-center opacity-20 min-h-screen overflow-hidden min-w-screen transition-opacity duration-500 z-[-1]"
+    >
+      <source src="/assets/video/lain-background-video.mkv" type="video/mp4" />
+    </video>
+    <div
+      class="relative ] my-[10px] rounded-2xl max-w-[90%] bg-[#141412] justify-between flex flex-col md:flex-row sm:flex-col"
+    >
+      <div class="flex-1 flex flex-col">
+        <div class="flex-1 flex-col flex">
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              WELCOME TO <span class="text-red-500">LAIN</span>
+            </h1>
+            <p class="text-white font-mono">
+              Lain is a ghost in the wires—half myth, half machine. She lingers
+              between silence and static, a presence you don’t quite see but
+              always feel, like a glitch that refuses to be explained.
+            </p>
+          </div>
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              LAIN'S <span class="text-red-500">PROJECTS</span>
+            </h1>
+            <ul class="text-white font-mono">
+              <li>A portfolio disguised as a signal.</li>
+              <li>Code stitched together with static.</li>
+              <li>Not built, but manifested. Half-presence, half-projection</li>
+              <li>More ghost than gallery.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="flex-1 flex-col flex bg-red-500"></div> -->
+      </div>
+
+      <div
+        class="w-[25%] flex flex-col justify-center border-l-[2px] my-[30px] px-[40px] border-[#4A463F]"
+      >
+        <h1
+          class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
+          style="font-family: var(--font-header)"
+        >
+          <span id="typewriter"></span>
+        </h1>
+        <div class="flex justify-start items-end">
+          <div
+            id="image-carousel"
+            class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-center bg-no-repeat rounded-lg h-[30rem] w-[20rem] mx-auto opacity-100 transition-opacity"
+          ></div>
+        </div>
+
+        <h1
+          id="glitch"
+          class="text-xl sm:text-2xl md:text-xs mt-5 text-white animate-pulse text-center"
+          style="font-family: var(--font-header)"
+        >
+          <span
+            id="js-quotes"
+            class="opacity-100 transition-opacity duration-300"
+            >Reality hums, distorted by static</span
+          >
+        </h1>
+      </div>
+    </div>
+
+    <script src="../assets/scripts/leewell/leewellScript.js"></script>
+  </body>
 </html>
