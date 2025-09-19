@@ -8,17 +8,39 @@ const bgImages = [
 const quotes = [
   "No boundaries between self and signal.",
   "Reality hums, distorted by static.",
-
-  "The body is offline, but the mind keeps transmitting.",
-  "Whispers echo in the wire, waiting for someone to listen.",
-  "Erase the self, and the system will fill the void.",
   "Are you connected, or are you alone?",
-  "The line between dream and machine has dissolved.",
   "Identity is just another protocol.",
   "Even silence leaves data behind.",
 ];
 
 const carousel = document.getElementById("image-carousel");
+const containers = document.querySelectorAll(".js-tab");
+
+const navButtons = document.querySelectorAll("li");
+navButtons.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    if (containers[index].classList.contains("flex")) {
+      console.log("hello - already active tab clicked");
+      return;
+    }
+    containers.forEach((item, index) => {
+      item.classList.remove("flex");
+      item.classList.add("hidden");
+    });
+    containers[index].classList.remove("hidden");
+    containers[index].classList.add("flex");
+  });
+});
+
+containers.forEach((item, index) => {
+  item.addEventListener("click", (e) => {
+    if (item.classList.contains("flex")) {
+      console.log("hello");
+      return;
+    }
+  });
+});
+
 let i = 0;
 
 carousel.style.backgroundImage = `url(${bgImages[i]})`;

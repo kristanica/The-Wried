@@ -4,6 +4,7 @@ const jsVolumeButton = document.getElementById("js-volume-button");
 
 const jsOverlay = document.getElementById("js-overlay");
 const jsBackgroundVideo = document.getElementById("js-background-video");
+
 const bgImage = [
   "../../assets/image/background-image-one.jpg",
   "../../assets/image/background-image-two.jpg",

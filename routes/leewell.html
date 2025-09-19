@@ -36,8 +36,20 @@
     }
   </style>
   <body
-    class="relative bg-[#0E0E0E] flex items-center flex-col overflow-hidden [100px] justify-center items-center min-h-screen"
+    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen"
   >
+    <h1
+      class="blur-sm text-white text-4xl sm:text-6xl md:text-9xl rotate-180 rabsolute top-0 right-0 absolute"
+      style="font-family: var(--font-header)"
+    >
+      Leewell
+    </h1>
+    <h1
+      class="blur-sm text-white text-4xl sm:text-6xl md:text-9xl rabsolute bottom-0 left-0 absolute"
+      style="font-family: var(--font-header)"
+    >
+      Leewell
+    </h1>
     <video
       autoplay
       muted
@@ -48,10 +60,24 @@
       <source src="/assets/video/lain-background-video.mkv" type="video/mp4" />
     </video>
     <div
-      class="relative ] my-[10px] rounded-2xl max-w-[90%] bg-[#141412] justify-between flex flex-col md:flex-row sm:flex-col"
+      class="relative my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] rounded-2xl w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
     >
-      <div class="flex-1 flex flex-col">
-        <div class="flex-1 flex-col flex">
+      <nav
+        class="w-full bg-[#181715] flex shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)]"
+      >
+        <ul class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer">
+          <li class="mx-4 hover:underline">Home</li>
+          <li class="hover:underline">About</li>
+          <li class="mx-4 hover:underline">Contact</li>
+          <li class="hover:underline">Socials</li>
+        </ul>
+        <div class="flex-1 flex bg-[#181715] justify-end items-center pr-5">
+          <span class="line-through animate-ping text-red-500">+ </span>
+        </div>
+      </nav>
+      <div class="flex-1 flex flex-col sm:flex-row md:flex-row">
+        <!-- Home -->
+        <div class="js-tab flex-1 my-4 flex-col flex">
           <div class="px-5">
             <h1 style="font-family: var(--font-header)" class="text-white">
               <span class="line-through animate-ping text-red-500">+ </span>
@@ -76,39 +102,108 @@
             </ul>
           </div>
         </div>
-        <!-- <div class="flex-1 flex-col flex bg-red-500"></div> -->
-      </div>
+        <!-- About -->
+        <div class="js-tab flex-1 my-4 flex-col hidden">
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              WELCOME TO <span class="text-red-500">LAIN</span>
+            </h1>
+            <p class="text-white font-mono">
+              between silence and static, a presence you don’t quite see but
+              always feel, like a glitch that refuses to be explained.
+            </p>
+          </div>
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              LAIN'S <span class="text-red-500">PROJECTS</span>
+            </h1>
+            <ul class="text-white font-mono">
+              <li>A portfolio disguised as a signal.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Contact -->
 
-      <div
-        class="w-[25%] flex flex-col justify-center border-l-[2px] my-[30px] px-[40px] border-[#4A463F]"
-      >
-        <h1
-          class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
-          style="font-family: var(--font-header)"
-        >
-          <span id="typewriter"></span>
-        </h1>
-        <div class="flex justify-start items-end">
-          <div
-            id="image-carousel"
-            class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-center bg-no-repeat rounded-lg h-[30rem] w-[20rem] mx-auto opacity-100 transition-opacity"
-          ></div>
+        <div class="js-tab flex-1 my-4 flex-col hidden">
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              WELCOME TO <span class="text-red-500">LAIN</span>
+            </h1>
+            <p class="text-white font-mono">
+              Lain is a ghost in the wires—half myth, half machine. She lingers
+              between silence and static, a presence you don’t quite see but
+              always feel, like a glitch that refuses to be explained.
+            </p>
+          </div>
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              LAIN'S <span class="text-red-500">PROJECTS</span>
+            </h1>
+            <ul class="text-white font-mono"></ul>
+          </div>
+        </div>
+        <!-- Socials -->
+
+        <div class="js-tab flex-1 my-4 flex-col hidden">
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              WELCOME TO <span class="text-red-500">LAIN</span>
+            </h1>
+            <p class="text-white font-mono">
+              Lain is a ghost in the wires—half myth, half machine. She lingers
+              between silence and static, a presence you don’t quite see but
+              always feel, like a glitch that refuses to be explained.
+            </p>
+          </div>
+          <div class="px-5">
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              LAIN'S <span class="text-red-500">PROJECTS</span>
+            </h1>
+            <ul class="text-white font-mono">
+              <li>A portfolio disguised as a signal.</li>
+              <li>Code stitched together with static.</li>
+              <li>Not built, but manifested. Half-presence, half-projection</li>
+              <li>More ghost than gallery.</li>
+            </ul>
+          </div>
         </div>
 
-        <h1
-          id="glitch"
-          class="text-xl sm:text-2xl md:text-xs mt-5 text-white animate-pulse text-center"
-          style="font-family: var(--font-header)"
+        <div
+          class="w-[25%] flex flex-col justify-center border-l-[2px] my-[30px] px-[40px] border-[#4A463F]"
         >
-          <span
-            id="js-quotes"
-            class="opacity-100 transition-opacity duration-300"
-            >Reality hums, distorted by static</span
+          <h1
+            class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
+            style="font-family: var(--font-header)"
           >
-        </h1>
+            <span id="typewriter"></span>
+          </h1>
+          <div class="flex justify-start items-end">
+            <div
+              id="image-carousel"
+              class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-center bg-no-repeat rounded-lg h-128 w-84 mx-auto opacity-100 transition-opacity"
+            ></div>
+          </div>
+
+          <h1
+            id="glitch"
+            class="text-xl sm:text-2xl md:text-xs mt-5 text-white animate-pulse text-center"
+            style="font-family: var(--font-header)"
+          >
+            <span
+              id="js-quotes"
+              class="opacity-100 transition-opacity duration-300"
+              >Reality hums, distorted by static</span
+            >
+          </h1>
+        </div>
       </div>
     </div>
-
     <script src="../assets/scripts/leewell/leewellScript.js"></script>
   </body>
 </html>
