@@ -6,7 +6,9 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles/indexStyle.css" />
+    <link rel="stylesheet" href="assets/styles/indexStyle.css" />
     <link rel="stylesheet" href="../assets/styles/variables.css" />
+
     <script
       src="https://kit.fontawesome.com/566c00e5db.js"
       crossorigin="anonymous"
@@ -36,19 +38,19 @@
     }
   </style>
   <body
-    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen"
+    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen saturate-50"
   >
     <h1
-      class="blur-sm text-white text-4xl sm:text-6xl md:text-9xl rotate-180 rabsolute top-0 right-0 absolute"
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
       style="font-family: var(--font-header)"
     >
       Leewell
     </h1>
     <h1
-      class="blur-sm text-white text-4xl sm:text-6xl md:text-9xl rabsolute bottom-0 left-0 absolute"
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl absolute bottom-0 left-0 absolute"
       style="font-family: var(--font-header)"
     >
-      Leewell
+      Le<span class="rotate-180 inline-block">e</span>well
     </h1>
     <video
       autoplay
@@ -59,134 +61,474 @@
     >
       <source src="/assets/video/lain-background-video.mkv" type="video/mp4" />
     </video>
+
+    <button
+      style="font-family: var(--font-header)"
+      id="js-show-container"
+      class="mx-auto text-white absolute z-[-1] cursor-pointer hover:underline hover:scale-95 text-xs transition-scale duration-200"
+    >
+      Did you really just closed it?
+    </button>
     <div
-      class="relative my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] rounded-2xl w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
+      id="js-main-container"
+      class="opacity-100 transition-opacity duration-300 my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
     >
       <nav
         class="w-full bg-[#181715] flex shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)]"
       >
-        <ul class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer">
-          <li class="mx-4 hover:underline">Home</li>
-          <li class="hover:underline">About</li>
-          <li class="mx-4 hover:underline">Contact</li>
-          <li class="hover:underline">Socials</li>
+        <ul
+          class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer items-center"
+        >
+          <img src="../assets/image/leewell/icon.gif" class="h-5 ml-3 w-5" />
+
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Home
+          </li>
+          <li
+            class="hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            About
+          </li>
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Contact
+          </li>
+          <li
+            class="hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Socials
+          </li>
         </ul>
         <div class="flex-1 flex bg-[#181715] justify-end items-center pr-5">
-          <span class="line-through animate-ping text-red-500">+ </span>
+          <button id="js-close-button" class="cursor-pointer">
+            <span class="line-through animate-ping text-red-500">X</span>
+          </button>
         </div>
       </nav>
       <div class="flex-1 flex flex-col sm:flex-row md:flex-row">
         <!-- Home -->
-        <div class="js-tab flex-1 my-4 flex-col flex">
-          <div class="px-5">
+
+        <div
+          class="js-tab flex-1 my-4 flex-col flex justify-center items-center opacity-100 transition-opacity duration-300"
+        >
+          <div
+            id="js-connection-container"
+            class="flex justify-center items-center flex-col"
+          >
             <h1 style="font-family: var(--font-header)" class="text-white">
               <span class="line-through animate-ping text-red-500">+ </span>
-              WELCOME TO <span class="text-red-500">LAIN</span>
+              Signal acquired.
+              <span class="text-green-400"> Connection </span> unstable. You’ve
+              entered Leewell’s node.
+              <span class="line-through animate-ping text-red-500">+ </span>
             </h1>
-            <p class="text-white font-mono">
-              Lain is a ghost in the wires—half myth, half machine. She lingers
-              between silence and static, a presence you don’t quite see but
-              always feel, like a glitch that refuses to be explained.
-            </p>
+
+            <button
+              id="js-continue-button"
+              class="text-white cursor-pointer hover:scale-90 transition-scale duration-300 text-mono"
+            >
+              Press to Continue
+            </button>
           </div>
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              LAIN'S <span class="text-red-500">PROJECTS</span>
-            </h1>
-            <ul class="text-white font-mono">
-              <li>A portfolio disguised as a signal.</li>
-              <li>Code stitched together with static.</li>
-              <li>Not built, but manifested. Half-presence, half-projection</li>
-              <li>More ghost than gallery.</li>
-            </ul>
+          <!-- After pressing continue -->
+          <div
+            id="js-home-container"
+            class="flex hidden flex-col flex-1 opacity-0 transition-opacity duration-300"
+          >
+            <div class="flex-[2] flex flex-col justify-center items-center">
+              <img src="../assets/image/leewell/LAIN.gif" class="w-40 h-40" />
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-center text-white text-2xl mt-5"
+              >
+                <span class="line-through animate-ping text-red-500">+</span>
+                WELCOME TO
+                <span class="text-red-500 line-through">LEEWELL</span>
+                <span class="line-through animate-ping text-red-500">+</span>
+              </h1>
+              <h6 class="text-white" style="font-family: var(--font-header)">
+                Student // Programmer
+              </h6>
+            </div>
+            <div class="flex-1">
+              <p class="font-mono text-center px-3 text-white">
+                <span class="text-[#DAC5A6]">Leewell M. Caputol</span> is
+                currently a 4th Year IT Student specialized in Web and Mobile
+                application on Tarlac State University, San Isidro Campus. He
+                really likes listening to various types of music but is
+                heads-over-heels on
+                <a
+                  href="https://en.wikipedia.org/wiki/Paramore"
+                  title="Curious are you?"
+                  target="_blank"
+                  class="text-red-500 hover:underline cursor-pointer"
+                  >PARAMORE.</a
+                >
+              </p>
+            </div>
           </div>
         </div>
         <!-- About -->
-        <div class="js-tab flex-1 my-4 flex-col hidden">
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              WELCOME TO <span class="text-red-500">LAIN</span>
-            </h1>
-            <p class="text-white font-mono">
-              between silence and static, a presence you don’t quite see but
-              always feel, like a glitch that refuses to be explained.
-            </p>
-          </div>
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              LAIN'S <span class="text-red-500">PROJECTS</span>
-            </h1>
-            <ul class="text-white font-mono">
-              <li>A portfolio disguised as a signal.</li>
-            </ul>
-          </div>
+        <div
+          class="js-tab flex-1 my-4 flex-col hidden justify-center items-center"
+        >
+          <p class="text-white font-mono">
+            Lain is a ghost in the wires—half myth, half machine. She lingers
+            between silence and static, a presence you don’t quite see but
+            always feel, like a glitch that refuses to be explained.
+          </p>
         </div>
         <!-- Contact -->
 
-        <div class="js-tab flex-1 my-4 flex-col hidden">
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              WELCOME TO <span class="text-red-500">LAIN</span>
-            </h1>
-            <p class="text-white font-mono">
-              Lain is a ghost in the wires—half myth, half machine. She lingers
-              between silence and static, a presence you don’t quite see but
-              always feel, like a glitch that refuses to be explained.
-            </p>
+        <div class="js-tab flex-1 my-4 flex-col hidden px-3 justify-between">
+          <div>
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  Hey uhh, this is Leewell. Thanks for paying a visit… I don’t
+                  really get those very much</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  It’s kinda weird putting myself out here, but I guess that’s
+                  what this place is for</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  Feel free to look around, just… don’t mind the static. It has
+                  a mind of its own sometimes....</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  If you’re wondering, yeah—Paramore on repeat keeps this node
+                  alive.</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  Anyway, welcome to my corner of the wired. Stay as long as you
+                  like</span
+                >
+              </h6>
+            </div>
+
+            <div
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+            >
+              <img
+                src="../assets/image/leewell/icon.gif"
+                class="h-5 ml-3 w-5 mr-2"
+              />
+              <h6
+                style="font-family: var(--font-header)"
+                class="leading-relaxed text-red-500"
+              >
+                Leewell >
+                <span class="text-xs text-white">
+                  But hey, feel free to reach out to me. Just send me a message
+                  down below. I promise i'll read them. If i can
+                </span>
+              </h6>
+            </div>
           </div>
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              LAIN'S <span class="text-red-500">PROJECTS</span>
-            </h1>
-            <ul class="text-white font-mono"></ul>
+
+          <div class="border-[#181715] bg-black border-[2px] flex flex-row">
+            <input
+              type="text"
+              class="text-red-500 py-2 px-7 w-full border-r-white border-[2px] outline-none flex-1"
+              placeholder="Your email in here"
+            />
+            <input
+              type="text"
+              class="text-white py-2 px-7 w-full outline-none flex-2"
+              placeholder="message content"
+            />
+            <p
+              style="font-family: var(--font-header)"
+              class="text-white m-auto pr-5 font-extrabold"
+            >
+              >>
+            </p>
           </div>
         </div>
         <!-- Socials -->
 
         <div class="js-tab flex-1 my-4 flex-col hidden">
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              WELCOME TO <span class="text-red-500">LAIN</span>
-            </h1>
-            <p class="text-white font-mono">
-              Lain is a ghost in the wires—half myth, half machine. She lingers
-              between silence and static, a presence you don’t quite see but
-              always feel, like a glitch that refuses to be explained.
-            </p>
-          </div>
-          <div class="px-5">
-            <h1 style="font-family: var(--font-header)" class="text-white">
-              <span class="line-through animate-ping text-red-500">+ </span>
-              LAIN'S <span class="text-red-500">PROJECTS</span>
-            </h1>
-            <ul class="text-white font-mono">
-              <li>A portfolio disguised as a signal.</li>
-              <li>Code stitched together with static.</li>
-              <li>Not built, but manifested. Half-presence, half-projection</li>
-              <li>More ghost than gallery.</li>
-            </ul>
+          <div class="px-5 flex flex-row flex-1">
+            <div class="flex-1 bg-[#181715] px-5 py-2">
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-white m-auto pr-5 font-extrabold"
+              >
+                Connection To Node
+              </h1>
+              <ul class="text-white">
+                <li>
+                  <h3>>Status: <span>ONLINE</span></h3>
+                </li>
+                <li>
+                  <h3>>Mood: <span>Stuck on Paramore</span></h3>
+                </li>
+                <li>
+                  <h3>>Location: <span>Somwhere in the wired...</span></h3>
+                </li>
+                <li>
+                  <h3>>Connection: <span>Somwhat stable</span></h3>
+                </li>
+
+                <li>
+                  <h3>
+                    >Signal Strength:
+                    <span class="animate-pulse text-green-400"
+                      >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
+                    >
+                  </h3>
+                </li>
+
+                <li>
+                  <h3>>Last Transmition: <span>01/01/04 21:37</span></h3>
+                </li>
+
+                <li>
+                  <h3>
+                    > Current Mood:
+                    <span class="italic">Half-present, half-projection.</span>
+                  </h3>
+                </li>
+              </ul>
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-white pr-5 font-extrabold my-3"
+              >
+                > Logs:
+              </h1>
+              <ul>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:12] Node handshake successful
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:35] Signal interference detected
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:41:02] Unknown entity pinged the server...
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:12] Node handshake successful
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:35] Signal interference detected
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:41:02] Unknown entity pinged the server...
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:12] Node handshake successful
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:35] Signal interference detected
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:41:02] Unknown entity pinged the server...
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:12] Node handshake successful
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:35] Signal interference detected
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:41:02] Unknown entity pinged the server...
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:12] Node handshake successful
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:40:35] Signal interference detected
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [21:41:02] Unknown entity pinged the server...
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="flex-2 bg-[#181715] ml-5">
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-white pr-5 font-extrabold my-3"
+              >
+                Socials:
+              </h1>
+
+              <ul class="list-none">
+                <li class="font-mono">
+                  <i class="fa-brands fa-square-instagram"></i>
+                  Facebook:
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@Leewell</a
+                  >
+                </li>
+                <li class="font-mono">
+                  <i class="fa-brands fa-reddit"></i>
+                  Reddit:
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@lainqwerty</a
+                  >
+                </li>
+
+                <li class="font-mono">
+                  <i class="fa-brands fa-github"></i>Reddit:
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@lainqwerty</a
+                  >
+                </li>
+                <li class="font-mono">
+                  <i class="fa-brands fa-twitter"></i>Twitter:
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@lainqwerty</a
+                  >
+                </li>
+                <li class="font-mono">
+                  <i class="fa-brands fa-square-lastfm"></i>last FM:
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@lainqwerty</a
+                  >
+                </li>
+                <li class="font-mono">
+                  <i class="fa-brands fa-spotify"></i>Spotify :
+                  <a
+                    href="https://www.facebook.com/leewellinyourarea/"
+                    target="_blank"
+                    >@lainqwerty</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div
-          class="w-[25%] flex flex-col justify-center border-l-[2px] my-[30px] px-[40px] border-[#4A463F]"
-        >
+        <div class="w-[25%] flex flex-col justify-center my-[30px] px-[40px]">
           <h1
             class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
             style="font-family: var(--font-header)"
           >
             <span id="typewriter"></span>
           </h1>
-          <div class="flex justify-start items-end">
+          <div class="flex justify-start items-end mt-5">
             <div
               id="image-carousel"
-              class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-center bg-no-repeat rounded-lg h-128 w-84 mx-auto opacity-100 transition-opacity"
+              class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-contain bg-center bg-no-repeat rounded-lg h-128 w-84 mx-auto opacity-100 transition-opacity"
             ></div>
           </div>
 
