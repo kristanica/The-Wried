@@ -19,6 +19,7 @@ const closeButton = document.getElementById("js-close-button");
 const mainContainer = document.getElementById("js-main-container");
 const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
+const carouselContainer = document.getElementById("js-carousel-container");
 
 closeButton.addEventListener("click", () => {
   mainContainer.classList.remove("opacity-100");
@@ -57,9 +58,15 @@ navButtons.forEach((item, index) => {
       item.classList.remove("flex");
       item.classList.add("hidden");
     });
+    if (index === 1) {
+      carouselContainer.classList.add("hidden");
+    } else {
+      carouselContainer.classList.remove("hidden");
+    }
 
     containers[index].classList.remove("hidden");
     containers[index].classList.add("flex");
+
     if (index === 3) {
       convoBox.forEach((c, i) => {
         setTimeout(() => {
@@ -74,7 +81,6 @@ navButtons.forEach((item, index) => {
 containers.forEach((item, index) => {
   item.addEventListener("click", (e) => {
     if (item.classList.contains("flex")) {
-      console.log("hello");
       return;
     }
   });
@@ -110,6 +116,14 @@ setInterval(() => {
   document.getElementById("js-quotes").textContent = quotes[y];
 }, 4000);
 
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem("scrollY", window.scrollY);
+});
+
+window.addEventListener("load", () => {
+  const scrollY = localStorage.getItem("scrollY");
+  if (scrollY) window.scrollTo(0, parseInt(scrollY));
+});
 window.onload = () => {
   typeWriter();
 };

@@ -35,6 +35,28 @@
 
     #typewriter {
       animation: glitchEffect 1s infinite reverse;
+    } /* Scanlines overlay */
+    .crt {
+      position: relative;
+      background: black;
+      overflow: hidden;
+    }
+    .crt::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: 10;
     }
   </style>
   <body
@@ -61,7 +83,6 @@
     >
       <source src="/assets/video/lain-background-video.mkv" type="video/mp4" />
     </video>
-
     <button
       style="font-family: var(--font-header)"
       id="js-show-container"
@@ -102,9 +123,20 @@
             Socials
           </li>
         </ul>
-        <div class="flex-1 flex bg-[#181715] justify-end items-center pr-5">
-          <button id="js-close-button" class="cursor-pointer">
-            <span class="line-through animate-ping text-red-500">X</span>
+        <div class="flex-1 bg-[#181715] flex flex-row justify-end">
+          <div class="font-mono text-xs text-gray-400 mt-4 flex flex-row">
+            <p>> Battery: <span class="text-red-400">12%</span></p>
+            <p>> Ping: <span class="text-yellow-400">999ms</span></p>
+            <p>
+              > Signal:
+              <span class="text-green-400 animate-pulse">unstable</span>
+            </p>
+          </div>
+          <button
+            id="js-close-button"
+            class="line-through cursor-pointer animate-ping text-red-500 mx-5"
+          >
+            X
           </button>
         </div>
       </nav>
@@ -152,6 +184,9 @@
               <h6 class="text-white" style="font-family: var(--font-header)">
                 Student // Programmer
               </h6>
+              <p class="text-xs text-justify text-white">
+                - [ SIGNAL ACQUIRED ] -
+              </p>
             </div>
             <div class="flex-1">
               <p class="font-mono text-center px-3 text-white">
@@ -172,21 +207,448 @@
           </div>
         </div>
         <!-- About -->
-        <div
-          class="js-tab flex-1 my-4 flex-col hidden justify-center items-center"
-        >
-          <p class="text-white font-mono">
-            Lain is a ghost in the wires—half myth, half machine. She lingers
-            between silence and static, a presence you don’t quite see but
-            always feel, like a glitch that refuses to be explained.
-          </p>
+        <div class="js-tab flex-1 my-4 hidden">
+          <div class="flex-1 bg-[#181715] px-5 py-2 flex flex-col">
+            <div
+              class="max-h-[40%] border-b-[#69586b] border-b-[1px] pb-3 flex-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+            >
+              <div
+                class="flex flex-row border-b-[#69586b] border-b-[1px] mb-2 pb-2"
+              >
+                <img
+                  src="../assets/image/profile-image-four.jpg "
+                  class="h-24 w-24"
+                />
+                <h1
+                  style="font-family: var(--font-header)"
+                  class="text-white m-auto pr-5 font-extrabold"
+                >
+                  Connection To
+                  <span class="line-through text-purple-400"> Node </span>
+                </h1>
+              </div>
+
+              <ul class="text-white">
+                <li class="">
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-signal"></i> Status:
+                    <span class="animate-pulse text-orange-500 font-semibold">
+                      • Away</span
+                    >
+                  </h3>
+                </li>
+
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-location-crosshairs"></i> Location:
+                    <span class="font-normal">Somwhere in the wired...</span>
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-laptop-code"></i> Skills:
+                    <span class="font-normal"
+                      >Web Dev, Mobile Dev, Pixel Art</span
+                    >
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-gamepad"></i> Interests:
+                    <span class="font-normal"
+                      >Coding, Gaming, Pixel Projects</span
+                    >
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-heart"></i> Favorite Color:
+                    <span class="font-normal"
+                      >Dark schemes w/ Pink accents</span
+                    >
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-briefcase"></i> Affiliation:
+                    <span class="font-normal">Tarlac State University</span>
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-location-dot"></i> Site of
+                    Operation:
+                    <span class="font-normal">San Isidro Campus</span>
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-envelope"></i> Role:
+                    <span class="font-normal">Student</span>
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-envelope"></i> Specialization:
+                    <span class="font-normal">Web and Mobile Application</span>
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="font-bold">
+                    >
+                    <i class="fa-solid fa-signal"></i>
+                    Connection:
+                    <span class="font-normal">Somewhat stable</span>
+                  </h3>
+                </li>
+
+                <li>
+                  <h3 class="font-bold">
+                    >
+                    <i class="fa-solid fa-signal"></i>
+                    Signal Strength:
+                    <span class="animate-pulse text-green-400"
+                      >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
+                    >
+                  </h3>
+                </li>
+
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-radio"></i> Last Transmition:
+                    <span class="font-normal">01/01/04 21:37</span>
+                  </h3>
+                </li>
+
+                <li>
+                  <h3 class="font-bold">
+                    > <i class="fa-solid fa-moon"></i> Current Mood:
+                    <span class="italic font-normal"
+                      >Half-present, half-projection.</span
+                    >
+                  </h3>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="max-h-[40%] flex-1 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+            >
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-white pr-5 font-extrabold my-3"
+              >
+                Career Logs:
+              </h1>
+              <ul>
+                <li>
+                  <p class="text-xs text-gray-400">
+                    [2015] Leewell escaped Elementary
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2020] Leewell survived High School
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2022] Leewell completed Senior High, barely intact
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2022] Leewell plugged into Tarlac State University
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2023] Leewell endured the first year of the system
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2024] Leewell survived the second year, glitches and all
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell navigated the chaos of third year
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell begins the fourth year — no promises
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2024] Leewell presented his Capstone proposal
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell started working on their Capstone proposal
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell presented their Capstone proposal
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell succesfully defended their Capstone proposal
+                  </p>
+                </li>
+                <li>
+                  <p class="text-xs text-gray-400 my-1">
+                    [2025] Leewell started working on their Capstone system
+                  </p>
+                </li>
+
+                <li>
+                  <p class="text-xs text-gray-400 my-1 animate-pulse">
+                    Leewell is stil writing his story.....
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex-3 flex flex-wrap bg-[#181715] gap-1">
+            <div
+              class="flex-2 flex flex-col font-mono text-[#DAC5A6] text-sm bg-black/40 flex-1"
+            >
+              <div
+                class="flex-3 max-h-100 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+              >
+                <h1 style="font-family: var(--font-header)">
+                  - Hello? Who is this?
+                </h1>
+                <p class="text-justify px-5">
+                  Hi, hey, Hello. My name is leewell, i dont really have much to
+                  talk about since all my information are literally displayed in
+                  here lol. Anwways, I hope you're not tripping with this kind
+                  of design lol. I really like this type of "grunchy" or
+                  "Mysterious" type of design since i really like Serial
+                  Experiments Lain. As you can see, this portfolio is heavily
+                  inspired by that show. Anyways, i hope u enjoy ur stay and
+                  stay connected in the
+                  <span
+                    style="font-family: var(--font-header)"
+                    class="text-red-500"
+                  >
+                    <a
+                      href="https://lain.fandom.com/wiki/The_Wired"
+                      target="_blank"
+                      title="Are you gonna connect?"
+                      >wired</a
+                    ></span
+                  >
+                  .
+                </p>
+
+                <h1 style="font-family: var(--font-header)">
+                  - So what do you really do?
+                </h1>
+                <p class="text-justify px-5">
+                  Well uhhh, i mainly code nowadays since of capstone. But when
+                  im not, i usually play some games with my friends or just stay
+                  blankly in the air sinking into deep thoughts lol. Anyway, i
+                  also listen to music, when music i mean PARAMORE. I've had
+                  Paramore on repeat on all music platforms since the time i
+                  discovered them. Not convince? check my
+                  <span class="text-red-500"
+                    ><a
+                      href="https://www.last.fm/user/Kristanica"
+                      target="_blank"
+                      >LastFM</a
+                    ></span
+                  >. I also listed to random podcast on spotify. Im currently
+                  listening to We're Alive and thats pretty much it
+                </p>
+                <h1 style="font-family: var(--font-header)">
+                  - Any creative stuff besides code?
+                </h1>
+                <p class="text-justify px-5">
+                  Yeah, I mess around with pixel art sometimes. It’s kind of
+                  like pressing pause on the chaos and capturing moments in
+                  tiny, blocky details. It’s nostalgic but also very...
+                  distorted. I also like writing random short notes, often
+                  chaotic, usually full of sarcasm, and sometimes inspired by
+                  shows like Lain. Think of them as fragments — small signals
+                  leaking from my brain into the wired.
+                </p>
+
+                <h1 style="font-family: var(--font-header)">
+                  - Why this design?
+                </h1>
+                <p class="text-justify px-5">
+                  Because clean portfolios feel like corporate resumes dressed
+                  up in CSS. This? This feels like a hidden terminal you weren’t
+                  supposed to find. It’s more "personal ghost in the machine"
+                  than "hire me please." If you understand it, you’re probably
+                  in the right place. If you don’t... maybe that’s the point.
+                </p>
+              </div>
+            </div>
+            <div
+              class="font-mono flex-wrap flex text-[#DAC5A6] bg-black/40 text-sm flex-1"
+            >
+              <div
+                class="flex-2 min-w-[100%] border-b-[#FFFFFF] border-b-[1px] px-2 pt-2"
+              >
+                <p class="text-center font-extrabold">[ACCESS LEVELS]</p>
+                <ul>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      React Native / Expo
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      React / Vite
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      Express / Firebase
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      HTML / CSS / JavaScript
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      TypeScript
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      Figma
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-purple-400 font-bold"
+                        >[PERMISSION GRANTED]:
+                      </span>
+                      Aseprite
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="flex-1 flex-col border-r-[1px] border-[#FFFFFF] px-2 pt-3"
+              >
+                <p class="text-center font-extrabold">[REPEATED TASKS]</p>
+
+                <ul>
+                  <li>
+                    <p>
+                      <span class="text-blue-300 text-bold">[HB1]: </span>
+                      Aseprite
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-blue-300 text-bold">[HB1]: </span>
+                      Games
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-blue-300 text-bold">[HB1]: </span>
+                      Music
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-blue-300 text-bold">[HB1]: </span>
+                      Listening to Podcast
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="flex-1 px-2 pt-3">
+                <p class="text-center font-extrabold">[TOP TRACKS]</p>
+
+                <ul>
+                  <li>
+                    <p>
+                      <span class="text-green-300 text-bold">[TR1]: </span>
+                      Aseprite
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-green-300 text-bold">[TR4]: </span>
+                      Games
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-green-300 text-bold">[TR3]: </span>
+                      Music
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="text-green-300 text-bold">[TR5]:</span>
+                      Listening to Podcast
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="font-mono w-100 [#DAC5A6] overflow-x-scroll text-sm bg-black/40 flex-2 min-w-[100%] flex items-center flex-row [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+            >
+              <img
+                src="../assets/image/background-image-one.jpg"
+                class="max-h-94 max-w-94 mx-2"
+              />
+              <img
+                src="../assets/image/background-image-two.jpg"
+                class="max-h-94 max-w-94 mx-2"
+              />
+              <img
+                src="../assets/image/background-image-three.jpg"
+                class="max-h-94 max-w-94 mx-2"
+              />
+              <img
+                src="../assets/image/background-image-four.jpg"
+                class="max-h-94 max-w-94 mx-2"
+              />
+            </div>
+          </div>
         </div>
         <!-- Contact -->
-
         <div class="js-tab flex-1 my-4 flex-col hidden px-3 justify-between">
           <div>
             <div
-              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
             >
               <img
                 src="../assets/image/leewell/icon.gif"
@@ -205,7 +667,7 @@
             </div>
 
             <div
-              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5"
+              class="js-convo-box flex flex-row opacity-0 transition-opacity duration-300 px-5 bg-black mb-3 px-3 shadow-[0_4px_15px_rgba(0,0,0,0.6)] py-5 my-2"
             >
               <img
                 src="../assets/image/leewell/icon.gif"
@@ -323,202 +785,186 @@
 
         <div class="js-tab flex-1 my-4 flex-col hidden">
           <div class="px-5 flex flex-row flex-1">
-            <div class="flex-1 bg-[#181715] px-5 py-2">
-              <h1
-                style="font-family: var(--font-header)"
-                class="text-white m-auto pr-5 font-extrabold"
-              >
-                Connection To Node
-              </h1>
-              <ul class="text-white">
-                <li>
-                  <h3>>Status: <span>ONLINE</span></h3>
-                </li>
-                <li>
-                  <h3>>Mood: <span>Stuck on Paramore</span></h3>
-                </li>
-                <li>
-                  <h3>>Location: <span>Somwhere in the wired...</span></h3>
-                </li>
-                <li>
-                  <h3>>Connection: <span>Somwhat stable</span></h3>
-                </li>
+            <div class="flex-2 bg-[#181715] ml-5 px-5 flex-row flex flex-wrap">
+              <div class="flex-1">
+                <h1
+                  style="font-family: var(--font-header)"
+                  class="text-white pr-5 font-extrabold my-3"
+                >
+                  Socials:
+                </h1>
 
-                <li>
-                  <h3>
-                    >Signal Strength:
-                    <span class="animate-pulse text-green-400"
-                      >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
+                <ul class="list-none text-white">
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    Facebook:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@Leewell</a
                     >
-                  </h3>
-                </li>
+                  </li>
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-reddit"></i>
+                    Reddit:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@lainqwerty</a
+                    >
+                  </li>
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    Instagram:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@Leewell</a
+                    >
+                  </li>
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-square-github"></i>
+                    Github:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@lainqwerty</a
+                    >
+                  </li>
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-square-lastfm"></i>
+                    Last FM:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@Leewell</a
+                    >
+                  </li>
+                  <li class="font-mono my-2">
+                    <i class="fa-brands fa-spotify"></i>
+                    Spotify:
+                    <a
+                      href="https://www.facebook.com/leewellinyourarea/"
+                      target="_blank"
+                      >@lainqwerty</a
+                    >
+                  </li>
+                </ul>
+              </div>
 
-                <li>
-                  <h3>>Last Transmition: <span>01/01/04 21:37</span></h3>
-                </li>
-
-                <li>
-                  <h3>
-                    > Current Mood:
-                    <span class="italic">Half-present, half-projection.</span>
-                  </h3>
-                </li>
-              </ul>
-              <h1
-                style="font-family: var(--font-header)"
-                class="text-white pr-5 font-extrabold my-3"
+              <div class="flex-1"></div>
+              <div
+                class="mt-8 font-mono text-[#DAC5A6] text-sm bg-black/40 p-4 flex-1 bg-[#121110] text-white min-w-[100%] mb-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
-                > Logs:
-              </h1>
-              <ul>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:12] Node handshake successful
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:35] Signal interference detected
-                  </p>
-                </li>
+                <h1
+                  class="bg-black text-center py-2"
+                  style="font-family: var(--font-header)"
+                >
+                  Recent Activites
+                </h1>
 
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:41:02] Unknown entity pinged the server...
+                <div class="px-2 max-h-34 text-[#FFFFFF]">
+                  <p class="opacity-40">
+                    > [00:00:00] Spotify status changed -> "My Heart" - Paramore
                   </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:12] Node handshake successful
+                  <p class="my-1 opacity-40">
+                    > [00:00:00] Pushed Devlab changes to github
                   </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:35] Signal interference detected
+                  <p class="my-2 opacity-40">
+                    > [00:00:00] Pinged an unkown location
                   </p>
-                </li>
+                  <p class="my-2 opacity-40">
+                    > [00:00:00] Spotify status changed -> "My Heart" - Paramore
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [21:49:37] Spotify status changed → "Decode" - Paramore
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [21:50:22]
+                    <span class="text-red-400"
+                      >Unknown entity pinged the node...</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [21:51:18] Transmission corrupted:
+                    <span class="animate-pulse"> ███▒▒▒▒▒▒▒▒▒▒</span>
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [21:52:05]
+                    <span class="text-blue-400"
+                      >Deployed new build of DevLab</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [21:47:25]
+                    <span class="text-yellow-400"
+                      >Incoming transmission detected</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:19:37] Private log entry:
+                    <span class="animate-pulse text-purple-400"
+                      >"Everything feels... static."</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:20:50] Browser history wiped →
+                    <span class="italic">"just in case"</span>
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:21:14]
+                    <span class="text-red-400"
+                      >Missed call from an unknown number</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:22:36]
+                    <span class="text-pink-300"
+                      >Drew another pixel art at 3AM</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:23:59] Self-ping → response time:
+                    <span class="text-yellow-400">∞</span>
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:25:47] Sent a message into the void → no reply
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:27:08] Spotify status changed → "Fake Happy" -
+                    Paramore
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:28:52] Note saved:
+                    <span class="italic"
+                      >"Capstone deadlines are hunting me"</span
+                    >
+                  </p>
+                  <p class="my-2 opacity-40">
+                    > [22:30:00]
+                    <span class="animate-pulse text-blue-400"
+                      >Identity fragmented across multiple nodes...</span
+                    >
+                  </p>
 
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:41:02] Unknown entity pinged the server...
+                  <p class="my-2 opacity-40">
+                    > [00:00:00]
+                    <span class="animate-ping text-red-900"
+                      >SOMETHING WENT WRONG</span
+                    >
                   </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:12] Node handshake successful
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:35] Signal interference detected
-                  </p>
-                </li>
+                </div>
+              </div>
 
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:41:02] Unknown entity pinged the server...
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:12] Node handshake successful
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:35] Signal interference detected
-                  </p>
-                </li>
-
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:41:02] Unknown entity pinged the server...
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:12] Node handshake successful
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:40:35] Signal interference detected
-                  </p>
-                </li>
-
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [21:41:02] Unknown entity pinged the server...
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-2 bg-[#181715] ml-5">
-              <h1
-                style="font-family: var(--font-header)"
-                class="text-white pr-5 font-extrabold my-3"
-              >
-                Socials:
-              </h1>
-
-              <ul class="list-none">
-                <li class="font-mono">
-                  <i class="fa-brands fa-square-instagram"></i>
-                  Facebook:
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@Leewell</a
-                  >
-                </li>
-                <li class="font-mono">
-                  <i class="fa-brands fa-reddit"></i>
-                  Reddit:
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@lainqwerty</a
-                  >
-                </li>
-
-                <li class="font-mono">
-                  <i class="fa-brands fa-github"></i>Reddit:
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@lainqwerty</a
-                  >
-                </li>
-                <li class="font-mono">
-                  <i class="fa-brands fa-twitter"></i>Twitter:
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@lainqwerty</a
-                  >
-                </li>
-                <li class="font-mono">
-                  <i class="fa-brands fa-square-lastfm"></i>last FM:
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@lainqwerty</a
-                  >
-                </li>
-                <li class="font-mono">
-                  <i class="fa-brands fa-spotify"></i>Spotify :
-                  <a
-                    href="https://www.facebook.com/leewellinyourarea/"
-                    target="_blank"
-                    >@lainqwerty</a
-                  >
-                </li>
-              </ul>
+              <!-- full row -->
             </div>
           </div>
         </div>
 
-        <div class="w-[25%] flex flex-col justify-center my-[30px] px-[40px]">
+        <div
+          id="js-carousel-container"
+          class="flex flex-col justify-center my-[30px] px-[40px]"
+        >
           <h1
             class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
             style="font-family: var(--font-header)"
