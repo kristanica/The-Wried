@@ -6,14 +6,402 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles/indexStyle.css" />
-    <link rel="stylesheet" href="assets/styles/variables.css" />
+    <link rel="stylesheet" href="assets/styles/indexStyle.css" />
+    <link rel="stylesheet" href="../assets/styles/variables.css" />
+
     <script
       src="https://kit.fontawesome.com/566c00e5db.js"
       crossorigin="anonymous"
     ></script>
   </head>
+   <style>
+    @keyframes glitchEffect {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+      20% {
+        text-shadow: -2px -2px lime, 2px 2px #69586b;
+      }
+      40% {
+        text-shadow: 2px 2px #f213de, -2px -2px #c73deb;
+      }
+      60% {
+        text-shadow: -2px 2px cyan, 2px -2px #02c2cc;
+      }
+      100% {
+        text-shadow: none;
+      }
+    }
 
+    #typewriter {
+      animation: glitchEffect 1s infinite reverse;
+    }
+  </style>
   <body
-    class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
-  ></body>
+    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen saturate-50"
+  >
+    <h1
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
+      style="font-family: var(--font-header)"
+    >
+      Joseph
+    </h1>
+    <h1
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl absolute bottom-0 left-0"
+      style="font-family: var(--font-header)"
+    >
+      Joseph
+    </h1>
+    <!-- Background Video -->
+    <video
+      autoplay
+      muted
+      loop
+      id="js-background-video"
+      class="absolute inset-0 blur-lg bg-cover bg-center opacity-20 min-h-screen overflow-hidden min-w-screen transition-opacity duration-500 z-[-1]"
+    >
+      <source src="/assets/video/lelouch-bg-video.mp4" type="video/mp4" />
+    </video>
+
+    <!-- for when they close the container -->
+    <button
+      style="font-family: var(--font-header)"
+      id="js-show-container"
+      class="mx-auto text-white absolute z-[-1] cursor-pointer hover:underline hover:scale-95 text-xs transition-scale duration-200"
+    >
+      Did you really just closed it?
+    </button>
+
+    <!-- main container -->
+    <div
+      id="js-main-container"
+      class="opacity-100 transition-opacity duration-300 my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
+    >
+      <!-- Navbar -->
+      <nav
+        class="w-full bg-[#181715] flex shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)]"
+      >
+        <ul
+          class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer items-center"
+        >
+          <!-- icon image -->
+          <img src="../assets/image/joseph/icon.jpg" class="h-5 ml-3 w-5" />
+
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Home
+          </li>
+          <li
+            class="hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Skills
+          </li>
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Socials
+          </li>
+          
+        </ul>
+
+        <!-- close button -->
+        <div class="flex-1 flex bg-[#181715] justify-end items-center pr-5">
+          <button id="js-close-button" class="cursor-pointer">
+            <span class="animate-ping text-red-500">X</span>
+          </button>
+        </div>
+      </nav>
+      <div class="flex-1 flex flex-col sm:flex-row md:flex-row">
+        <!-- Home -->
+        <div
+          class="js-tab flex-1 my-4 flex-col flex justify-center items-center opacity-100 transition-opacity duration-300"
+        >
+          <!-- Initial Screen -->
+          <div
+            id="js-connection-container"
+            class="flex justify-center items-center flex-col"
+          >
+            <h1 style="font-family: var(--font-header)" class="text-white">
+              <span class="line-through animate-ping text-red-500">+ </span>
+              Signal acquired.
+              <span class="text-green-400"> Connection </span> unstable. You’ve
+              entered Joseph's node.
+              <span class="line-through animate-ping text-red-500">+ </span>
+            </h1>
+
+            <!-- continue button -->
+            <button
+              id="js-continue-button"
+              class="text-white cursor-pointer hover:scale-90 transition-scale duration-300 text-mono"
+            >
+              Press to Continue
+            </button>
+          </div>
+          <!-- After pressing continue -->
+          <div
+            id="js-home-container"
+            class="flex hidden flex-col flex-1 opacity-0 transition-opacity duration-300"
+          >
+            <div class="flex-[2] flex flex-col justify-center items-center">
+              <img src="../assets/image/joseph/icon.jpg" class="w-40 h-40" />
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-center text-blue-500 text-2xl mt-5 "
+              >
+              JOSEPH DANIEL CASTRO
+              </h1>
+              <h6 class="text-white" style="font-family: var(--font-header)">
+                Student // Programmer
+              </h6>
+            </div>
+            <div class="flex-1">
+
+              <!-- about me -->
+                <div class="relative flex-1 border-4 border-white p-6 ml-10">
+                <span class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold ">
+                  Who Am I?
+                </span>
+                <p class="font-mono text-center text-white text-xl">
+                  I, <span class="text-[#DAC5A6]">Joseph Daniel Castro</span>, am
+                  currently a 4th Year IT Student specialized in Web and Mobile
+                  applications at Tarlac State University, San Isidro Campus.
+                </p>
+              </div>
+              <br />
+
+              <!-- hobbies -->
+              <div class="relative flex-1 border-4 border-white p-6 ml-10">
+                <span class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold">
+                  Hobbies
+                </span>
+                <p class="font-mono text-center px-3 text-white text-xl">I love to
+                <span class="text-[#DAC5A6]"> play games, watch anime,
+                read manga, </span> and listen to <span class="text-[#DAC5A6]">music</span> during my free time.
+              </p>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Skills -->
+        <div
+          class="js-tab flex-1 my-4 flex-row hidden justify-center items-center"
+        >
+          <div class="flex flex-col gap-5">
+              <div class="flex flex-wrap justify-center gap-6">
+                <!-- Column 1 -->
+                <div class="flex flex-col items-center">
+                  <h1 class="text-amber-400 text-lg font-bold">CISCO CERTIFICATES</h1>
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/cisco1.png')"
+                  >
+                    <img src="../assets/image/joseph/cisco1.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">
+                      CCNAv7: Introduction to Networks
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/cisco2.png')"
+                  >
+                    <img src="../assets/image/joseph/cisco2.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">
+                      CCNPv7: Switching, Routing, and Wireless Essentials
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="flex flex-col items-center">
+                  <h1 class="text-amber-400 text-lg font-bold">ONLINE COURSES</h1>
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/js-DICT.png')"
+                  >
+                    <img src="../assets/image/joseph/js-DICT.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">JavaScript Essentials 1</p>
+                  </div>
+
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/na-DICT.png')"
+                  >
+                    <img src="../assets/image/joseph/na-DICT.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">
+                      Network Addressing and Basic Troubleshooting
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="flex flex-col items-center">
+                  <h1 class="text-amber-400 text-lg font-bold">DICT WEBINARS</h1>
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/dataPrivacy-DICT.png')"
+                  >
+                    <img src="../assets/image/joseph/dataPrivacy-DICT.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">Data Privacy Awareness</p>
+                  </div>
+
+                  <div
+                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    onclick="openCert('../assets/image/joseph/IoT-DICT.png')"
+                  >
+                    <img src="../assets/image/joseph/IoT-DICT.png" class="w-80 h-60" />
+                    <p class="mt-2 text-white text-sm">IoT in Smart Cities</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Onclick Display -->
+              <div
+                id="imageContainer"
+                class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden justify-center items-center z-50"
+                onclick="closeCert()"
+              >
+                <span
+                  class="absolute top-5 right-10 text-white text-3xl cursor-pointer"
+                  onclick="closeCert()"
+                  >&times;</span
+                >
+                 <video
+                  id="certVideo"
+                  autoplay
+                  muted
+                  loop
+                  class="absolute inset-0 w-full h-full object-cover blur-lg opacity-20 -z-10"
+                >
+                  <source src="/assets/video/lelouch-bg-video.mp4" type="video/mp4" />
+                </video>
+                <img
+                  id="certImage"
+                  src=""
+                  class="max-w-5xl max-h-[80vh] rounded-lg shadow-lg"
+                />
+              </div>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div class="js-tab flex-1 my-4 flex-col hidden">
+          <div class="px-5 flex flex-row flex-1">
+            <!-- Social Media -->
+            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
+              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
+                SOCIAL MEDIA
+              </h1>
+
+              <a href="https://www.facebook.com/OfficialGongYoo" target="_blank">
+                <img
+                  src="../assets/image/joseph/fb-icon.png"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="https://x.com/ActorGongYo" target="_blank">
+                <img
+                  src="../assets/image/joseph/x-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="mailto:jsphdnl19@gmail.com" target="_blank">
+                <img
+                  src="../assets/image/joseph/google-icon.png"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="https://www.instagram.com/gongyoo_official/" target="_blank">
+                <img
+                  src="../assets/image/joseph/ig-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+            </div>
+
+          <!-- Gaming Platforms -->
+            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
+              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
+                GAMING PLATFORMS
+              </h1>
+
+              <a href="https://steamcommunity.com/profiles/76561199176749132/" target="_blank">
+                <img
+                  src="../assets/image/joseph/steam-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="https://op.gg/lol/summoners/sea/Lux%20Lucis-JayD" target="_blank">
+                <img
+                  src="../assets/image/joseph/riot-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="https://discord.gg/CPgDu6NK" target="_blank">
+                <img
+                  src="../assets/image/joseph/dc-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+            </div>
+
+          <!-- Other Platforms -->
+            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
+              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
+              OTHER PLATFORMS
+              </h1>
+
+              <a href="https://github.com/JayDDDDD" target="_blank">
+                <img
+                  src="../assets/image/joseph/gitHub-icon.jpg"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              <a href="mailto:jd.castro2197@student.tsu.edu.ph" target="_blank">
+                <img
+                  src="../assets/image/joseph/tsu-icon.png"
+                  class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
+                />
+              </a>
+              
+            </div>
+                      
+        </div>
+      </div>
+
+
+        <!-- Image Carousel -->
+        <div class="w-[25%] flex flex-col justify-center my-[30px] px-[40px]">
+          <h1
+            class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
+            style="font-family: var(--font-header)"
+          >
+            <span id="typewriter"></span>
+          </h1>
+          <div class="flex justify-start items-end mt-5">
+            <div
+              id="image-carousel"
+              class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-contain bg-center bg-no-repeat rounded-lg h-128 w-84 mx-auto opacity-100 transition-opacity"
+            ></div>
+          </div>
+
+          <h1
+            id="glitch"
+            class="text-xl sm:text-2xl md:text-xs mt-5 text-white animate-pulse text-center"
+            style="font-family: var(--font-header)"
+          >
+            <span
+              id="js-quotes"
+              class="opacity-100 transition-opacity duration-300"
+              >I am Lelouch vi Britannia. I am the Zero who will change the world</span
+            >
+          </h1>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/scripts/joseph/script.js"></script>
+  </body>
 </html>
