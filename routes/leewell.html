@@ -36,32 +36,53 @@
     #typewriter {
       animation: glitchEffect 1s infinite reverse;
     } /* Scanlines overlay */
-    .crt {
+    /* .crt {
       position: relative;
       background: black;
       overflow: hidden;
-    }
-    .crt::before {
+    } */
+    .crt {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+
       background: repeating-linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.05) 0px,
+        rgba(155, 49, 49, 0.05) 0px,
         rgba(255, 255, 255, 0.05) 2px,
-        transparent 2px,
-        transparent 4px
+        transparent 5px,
+        transparent 10px
       );
       pointer-events: none;
-      z-index: 10;
+
+      animation: scanlines infinite 0.2s linear;
+    }
+    @keyframes scanlines {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 4px;
+      }
     }
   </style>
   <body
-    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen saturate-50"
+    class="relative bg-[#0E0E0E] flex justify-center overflow-y-scroll lg:overflow-hidden items-center min-h-screen saturate-50"
   >
+    <div
+      id="modal"
+      class="h-full flex justify-center items-center w-full bg-black/40 absolute transition-opacity opacity-0 pointer-events-none z-[50]"
+    >
+      <div class="">
+        <button
+          id="closeModal"
+          class="absolute top-0 right-0 text-white text-2xl p-2"
+        >
+          X
+        </button>
+        <img id="js-modal-content" class="flex flex-1" />
+      </div>
+    </div>
+    <div class="absolute crt w-full h-full z-[999]"></div>
     <h1
       class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
       style="font-family: var(--font-header)"
@@ -92,7 +113,7 @@
     </button>
     <div
       id="js-main-container"
-      class="opacity-100 transition-opacity duration-300 my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
+      class="opacity-100 transition-opacity duration-300 my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] md:w-[90%] bg-[#141412] justify-between flex flex-col"
     >
       <nav
         class="w-full bg-[#181715] flex shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)]"
@@ -123,7 +144,7 @@
             Socials
           </li>
         </ul>
-        <div class="flex-1 bg-[#181715] flex flex-row justify-end">
+        <div class="hidden flex-1 bg-[#181715] lg:flex flex-row justify-end">
           <div class="font-mono text-xs text-gray-400 mt-4 flex flex-row">
             <p>> Battery: <span class="text-red-400">12%</span></p>
             <p>> Ping: <span class="text-yellow-400">999ms</span></p>
@@ -148,9 +169,12 @@
         >
           <div
             id="js-connection-container"
-            class="flex justify-center items-center flex-col"
+            class="flex justify-center py-[200px] items-center flex-col"
           >
-            <h1 style="font-family: var(--font-header)" class="text-white">
+            <h1
+              style="font-family: var(--font-header)"
+              class="text-white text-center"
+            >
               <span class="line-through animate-ping text-red-500">+ </span>
               Signal acquired.
               <span class="text-green-400"> Connection </span> unstable. You’ve
@@ -208,222 +232,212 @@
         </div>
         <!-- About -->
         <div class="js-tab flex-1 my-4 hidden">
-          <div class="flex-1 bg-[#181715] px-5 py-2 flex flex-col">
-            <div
-              class="max-h-[40%] border-b-[#69586b] border-b-[1px] pb-3 flex-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-            >
+          <div class="flex flex-col lg:flex-row gap-2 bg-[#181715] px-5 py-2">
+            <!-- Left Section: Profile + Career Logs -->
+            <div class="flex flex-col lg:w-1/3 bg-black/40 p-3">
+              <!-- Profile Info -->
               <div
-                class="flex flex-row border-b-[#69586b] border-b-[1px] mb-2 pb-2"
+                class="border-b border-[#69586b] pb-3 max-h-[40%] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
-                <img
-                  src="../assets/image/profile-image-four.jpg "
-                  class="h-24 w-24"
-                />
-                <h1
-                  style="font-family: var(--font-header)"
-                  class="text-white m-auto pr-5 font-extrabold"
+                <div
+                  class="flex flex-row items-center border-b border-[#69586b] mb-2 pb-2"
                 >
-                  Connection To
-                  <span class="line-through text-purple-400"> Node </span>
-                </h1>
+                  <img
+                    src="../assets/image/profile-image-four.jpg"
+                    class="h-24 w-24 object-cover rounded"
+                  />
+                  <h1
+                    style="font-family: var(--font-header)"
+                    class="text-white ml-4 font-extrabold"
+                  >
+                    Connection To
+                    <span class="line-through text-purple-400"> Node </span>
+                  </h1>
+                </div>
+
+                <ul class="text-white text-sm space-y-2">
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-signal"></i> Status:
+                      <span class="animate-pulse text-orange-500 font-semibold"
+                        >• Away</span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      >
+                      <i class="fa-solid fa-location-crosshairs"></i> Location:
+                      <span class="font-normal">Somewhere in the wired...</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-laptop-code"></i> Skills:
+                      <span class="font-normal"
+                        >Web Dev, Mobile Dev, Pixel Art</span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-gamepad"></i> Interests:
+                      <span class="font-normal"
+                        >Coding, Gaming, Pixel Projects</span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-heart"></i> Favorite Color:
+                      <span class="font-normal"
+                        >Dark schemes w/ Pink accents</span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-briefcase"></i> Affiliation:
+                      <span class="font-normal">Tarlac State University</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-location-dot"></i> Site of
+                      Operation:
+                      <span class="font-normal">San Isidro Campus</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-envelope"></i> Role:
+                      <span class="font-normal">Student</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-envelope"></i> Specialization:
+                      <span class="font-normal"
+                        >Web and Mobile Application</span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-signal"></i> Connection:
+                      <span class="font-normal">Somewhat stable</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-signal"></i> Signal Strength:
+                      <span class="animate-pulse text-green-400"
+                        >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
+                      >
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-radio"></i> Last Transmission:
+                      <span class="font-normal">01/01/04 21:37</span>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-moon"></i> Current Mood:
+                      <span class="italic font-normal"
+                        >Half-present, half-projection.</span
+                      >
+                    </h3>
+                  </li>
+                </ul>
               </div>
 
-              <ul class="text-white">
-                <li class="">
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-signal"></i> Status:
-                    <span class="animate-pulse text-orange-500 font-semibold">
-                      • Away</span
-                    >
-                  </h3>
-                </li>
-
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-location-crosshairs"></i> Location:
-                    <span class="font-normal">Somwhere in the wired...</span>
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-laptop-code"></i> Skills:
-                    <span class="font-normal"
-                      >Web Dev, Mobile Dev, Pixel Art</span
-                    >
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-gamepad"></i> Interests:
-                    <span class="font-normal"
-                      >Coding, Gaming, Pixel Projects</span
-                    >
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-heart"></i> Favorite Color:
-                    <span class="font-normal"
-                      >Dark schemes w/ Pink accents</span
-                    >
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-briefcase"></i> Affiliation:
-                    <span class="font-normal">Tarlac State University</span>
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-location-dot"></i> Site of
-                    Operation:
-                    <span class="font-normal">San Isidro Campus</span>
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-envelope"></i> Role:
-                    <span class="font-normal">Student</span>
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-envelope"></i> Specialization:
-                    <span class="font-normal">Web and Mobile Application</span>
-                  </h3>
-                </li>
-                <li>
-                  <h3 class="font-bold">
-                    >
-                    <i class="fa-solid fa-signal"></i>
-                    Connection:
-                    <span class="font-normal">Somewhat stable</span>
-                  </h3>
-                </li>
-
-                <li>
-                  <h3 class="font-bold">
-                    >
-                    <i class="fa-solid fa-signal"></i>
-                    Signal Strength:
-                    <span class="animate-pulse text-green-400"
-                      >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
-                    >
-                  </h3>
-                </li>
-
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-radio"></i> Last Transmition:
-                    <span class="font-normal">01/01/04 21:37</span>
-                  </h3>
-                </li>
-
-                <li>
-                  <h3 class="font-bold">
-                    > <i class="fa-solid fa-moon"></i> Current Mood:
-                    <span class="italic font-normal"
-                      >Half-present, half-projection.</span
-                    >
-                  </h3>
-                </li>
-              </ul>
-            </div>
-
-            <div
-              class="max-h-[40%] flex-1 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-            >
-              <h1
-                style="font-family: var(--font-header)"
-                class="text-white pr-5 font-extrabold my-3"
-              >
-                Career Logs:
-              </h1>
-              <ul>
-                <li>
-                  <p class="text-xs text-gray-400">
-                    [2015] Leewell escaped Elementary
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2020] Leewell survived High School
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2022] Leewell completed Senior High, barely intact
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2022] Leewell plugged into Tarlac State University
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2023] Leewell endured the first year of the system
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2024] Leewell survived the second year, glitches and all
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell navigated the chaos of third year
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell begins the fourth year — no promises
-                  </p>
-                </li>
-
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2024] Leewell presented his Capstone proposal
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell started working on their Capstone proposal
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell presented their Capstone proposal
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell succesfully defended their Capstone proposal
-                  </p>
-                </li>
-                <li>
-                  <p class="text-xs text-gray-400 my-1">
-                    [2025] Leewell started working on their Capstone system
-                  </p>
-                </li>
-
-                <li>
-                  <p class="text-xs text-gray-400 my-1 animate-pulse">
-                    Leewell is stil writing his story.....
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="flex-3 flex flex-wrap bg-[#181715] gap-1">
-            <div
-              class="flex-2 flex flex-col font-mono text-[#DAC5A6] text-sm bg-black/40 flex-1"
-            >
+              <!-- Career Logs -->
               <div
-                class="flex-3 max-h-100 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="max-h-[20%] overflow-y-auto mt-3 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+              >
+                <h1
+                  style="font-family: var(--font-header)"
+                  class="text-white font-extrabold mb-3"
+                >
+                  Career Logs:
+                </h1>
+                <ul class="space-y-1">
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2015] Leewell escaped Elementary
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2020] Leewell survived High School
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2022] Completed Senior High, barely intact
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2022] Plugged into Tarlac State University
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2023] Endured the first year of the system
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2024] Survived the second year, glitches and all
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2025] Navigated the chaos of third year
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2025] Began the fourth year — no promises
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2024] Presented Capstone proposal
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400">
+                      [2025] Started working on Capstone system
+                    </p>
+                  </li>
+                  <li>
+                    <p class="text-xs text-gray-400 animate-pulse">
+                      Leewell is still writing his story.....
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="h-[40%] max-h-[40%] gap-10 relative flex items-center justify-center"
+              >
+                <img
+                  src="../assets/image/background-image-four.jpg "
+                  class="h-[200px] absolute"
+                />
+              </div>
+            </div>
+            <!-- Middle Section: About -->
+            <div class="flex flex-col lg:w-2/3 gap-2">
+              <!-- About / Intro -->
+              <div
+                class="flex-1 font-mono text-[#DAC5A6] text-sm bg-black/40 p-3 overflow-y-auto"
               >
                 <h1 style="font-family: var(--font-header)">
+                  <!-- keep your Q&A blocks here -->
                   - Hello? Who is this?
                 </h1>
                 <p class="text-justify px-5">
@@ -468,6 +482,7 @@
                   >. I also listed to random podcast on spotify. Im currently
                   listening to We're Alive and thats pretty much it
                 </p>
+
                 <h1 style="font-family: var(--font-header)">
                   - Any creative stuff besides code?
                 </h1>
@@ -480,170 +495,136 @@
                   shows like Lain. Think of them as fragments — small signals
                   leaking from my brain into the wired.
                 </p>
-
-                <h1 style="font-family: var(--font-header)">
-                  - Why this design?
-                </h1>
-                <p class="text-justify px-5">
-                  Because clean portfolios feel like corporate resumes dressed
-                  up in CSS. This? This feels like a hidden terminal you weren’t
-                  supposed to find. It’s more "personal ghost in the machine"
-                  than "hire me please." If you understand it, you’re probably
-                  in the right place. If you don’t... maybe that’s the point.
-                </p>
               </div>
-            </div>
-            <div
-              class="font-mono flex-wrap flex text-[#DAC5A6] bg-black/40 text-sm flex-1"
-            >
+
+              <!-- Right Info Panels -->
               <div
-                class="flex-2 min-w-[100%] border-b-[#FFFFFF] border-b-[1px] px-2 pt-2"
+                class="flex flex-col lg:flex-row text-[#DAC5A6] text-sm font-mono"
               >
-                <p class="text-center font-extrabold">[ACCESS LEVELS]</p>
-                <ul>
-                  <li>
-                    <p>
+                <!-- Access Levels -->
+                <div class="flex-1 px-2 pt-2 bg-black/40 my-2">
+                  <p class="text-center font-extrabold">[ACCESS LEVELS]</p>
+                  <ul class="flex mt-2 flex-col items-center lg:items-start">
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       React Native / Expo
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       React / Vite
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       Express / Firebase
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
-                      HTML / CSS / JavaScript
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                        >[PERMISSION GRANTED]:</span
+                      >
+                      HTML / CSS / JS
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       TypeScript
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       Figma
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       <span class="text-purple-400 font-bold"
-                        >[PERMISSION GRANTED]:
-                      </span>
+                        >[PERMISSION GRANTED]:</span
+                      >
                       Aseprite
-                    </p>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Repeated Tasks -->
+                <div class="flex-1 px-2 pt-2 bg-black/40 my-2">
+                  <p class="text-center font-extrabold">[REPEATED TASKS]</p>
+                  <ul class="flex mt-2 flex-col items-center lg:items-start">
+                    <li>
+                      <span class="text-blue-300 font-bold">[HB1]:</span>
+                      Aseprite
+                    </li>
+                    <li>
+                      <span class="text-blue-300 font-bold">[HB1]:</span> Games
+                    </li>
+                    <li>
+                      <span class="text-blue-300 font-bold">[HB1]:</span> Music
+                    </li>
+                    <li>
+                      <span class="text-blue-300 font-bold">[HB1]:</span>
+                      Podcasts
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Top Tracks -->
+                <div class="flex-1 px-2 pt-2 bg-black/40 my-2 py-2">
+                  <p class="text-center font-extrabold">[TOP TRACKS]</p>
+                  <ul class="flex mt-2 flex-col items-center lg:items-start">
+                    <li>
+                      <span class="text-green-300 font-bold">[TR1]:</span>
+                      Aseprite
+                    </li>
+                    <li>
+                      <span class="text-green-300 font-bold">[TR4]:</span> Games
+                    </li>
+                    <li>
+                      <span class="text-green-300 font-bold">[TR3]:</span> Music
+                    </li>
+                    <li>
+                      <span class="text-green-300 font-bold">[TR5]:</span>
+                      Podcasts
+                    </li>
+                  </ul>
+                </div>
               </div>
+
               <div
-                class="flex-1 flex-col border-r-[1px] border-[#FFFFFF] px-2 pt-3"
+                class="flex flex-row overflow-x-auto bg-black/40 p-2 [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
-                <p class="text-center font-extrabold">[REPEATED TASKS]</p>
-
-                <ul>
-                  <li>
-                    <p>
-                      <span class="text-blue-300 text-bold">[HB1]: </span>
-                      Aseprite
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-blue-300 text-bold">[HB1]: </span>
-                      Games
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-blue-300 text-bold">[HB1]: </span>
-                      Music
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-blue-300 text-bold">[HB1]: </span>
-                      Listening to Podcast
-                    </p>
-                  </li>
-                </ul>
+                <img
+                  src="../assets/image/leewell/certificates/c1.png"
+                  class="ecert h-40 mx-2"
+                />
+                <img
+                  src="../assets/image/leewell/certificates/c2.png"
+                  class="ecert h-40 mx-2"
+                />
+                <img
+                  src="../assets/image/leewell/certificates/c3.png"
+                  class="ecert h-40 mx-2"
+                />
+                <img
+                  src="../assets/image/leewell/certificates/c4.png"
+                  class="ecert h-40 mx-2"
+                />
+                <img
+                  src="../assets/image/leewell/certificates/c5.png"
+                  class="ecert h-40 mx-2"
+                />
+                <img
+                  src="../assets/image/leewell/certificates/c6.png"
+                  class="ecert h-40 mx-2"
+                />
               </div>
-              <div class="flex-1 px-2 pt-3">
-                <p class="text-center font-extrabold">[TOP TRACKS]</p>
-
-                <ul>
-                  <li>
-                    <p>
-                      <span class="text-green-300 text-bold">[TR1]: </span>
-                      Aseprite
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-green-300 text-bold">[TR4]: </span>
-                      Games
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-green-300 text-bold">[TR3]: </span>
-                      Music
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <span class="text-green-300 text-bold">[TR5]:</span>
-                      Listening to Podcast
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="font-mono w-100 [#DAC5A6] overflow-x-scroll text-sm bg-black/40 flex-2 min-w-[100%] flex items-center flex-row [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-            >
-              <img
-                src="../assets/image/background-image-one.jpg"
-                class="max-h-94 max-w-94 mx-2"
-              />
-              <img
-                src="../assets/image/background-image-two.jpg"
-                class="max-h-94 max-w-94 mx-2"
-              />
-              <img
-                src="../assets/image/background-image-three.jpg"
-                class="max-h-94 max-w-94 mx-2"
-              />
-              <img
-                src="../assets/image/background-image-four.jpg"
-                class="max-h-94 max-w-94 mx-2"
-              />
             </div>
           </div>
         </div>
+
         <!-- Contact -->
         <div class="js-tab flex-1 my-4 flex-col hidden px-3 justify-between">
           <div>
@@ -783,8 +764,8 @@
         </div>
         <!-- Socials -->
 
-        <div class="js-tab flex-1 my-4 flex-col hidden">
-          <div class="px-5 flex flex-row flex-1">
+        <div class="js-tab flex-1 my-4 hidden">
+          <div class="px-5 flex flex-">
             <div class="flex-2 bg-[#181715] ml-5 px-5 flex-row flex flex-wrap">
               <div class="flex-1">
                 <h1
@@ -852,9 +833,29 @@
                 </ul>
               </div>
 
-              <div class="flex-1"></div>
+              <div class="flex-1">
+                <div
+                  class="text-pink-300 font-mono p-3 mt-4 rounded animate-pulse"
+                >
+                  <p>Now Playing: "Decode" - Paramore</p>
+                  <p class="italic text-white">"How did we get here?"</p>
+                </div>
+                <div
+                  class="bg-[#121212] text-purple-400 font-mono p-4 mt-4 rounded"
+                >
+                  <h2 class="text-white font-bold mb-2">Identity Nodes</h2>
+                  <ul class="list-disc ml-4">
+                    <li>@lainqwerty → GitHub, Reddit, Spotify</li>
+                    <li>@Leewell → Facebook, Instagram, LastFM</li>
+                    <li>Unknown → Pinged node at 21:50:22</li>
+                  </ul>
+                  <p class="mt-2 italic text-white">
+                    "Everything feels... static."
+                  </p>
+                </div>
+              </div>
               <div
-                class="mt-8 font-mono text-[#DAC5A6] text-sm bg-black/40 p-4 flex-1 bg-[#121110] text-white min-w-[100%] mb-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="mt-8 font-mono text-[#DAC5A6] text-sm bg-black/40 p-4 flex-1 bg-[#121110] h-[500px] lg:h-[300px] text-white min-w-[100%] mb-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
                 <h1
                   class="bg-black text-center py-2"
@@ -963,7 +964,7 @@
 
         <div
           id="js-carousel-container"
-          class="flex flex-col justify-center my-[30px] px-[40px]"
+          class="flex-col justify-center my-[30px] px-[40px] flex"
         >
           <h1
             class="z-50 sm:text-[10px] md:text-2xl text-white text-center"

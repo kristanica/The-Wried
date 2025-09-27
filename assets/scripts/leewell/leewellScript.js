@@ -20,6 +20,14 @@ const mainContainer = document.getElementById("js-main-container");
 const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
 const carouselContainer = document.getElementById("js-carousel-container");
+const ecert = document.querySelectorAll(".ecert");
+
+ecert.forEach((item) =>
+  item.addEventListener("click", () => {
+    document.getElementById("modal").classList.add("opacity-100");
+    document.getElementById("js-modal-content").src = item.src;
+  })
+);
 
 closeButton.addEventListener("click", () => {
   mainContainer.classList.remove("opacity-100");
@@ -116,14 +124,14 @@ setInterval(() => {
   document.getElementById("js-quotes").textContent = quotes[y];
 }, 4000);
 
-window.addEventListener("beforeunload", () => {
-  localStorage.setItem("scrollY", window.scrollY);
-});
+// window.addEventListener("beforeunload", () => {
+//   localStorage.setItem("scrollY", window.scrollY);
+// });
 
-window.addEventListener("load", () => {
-  const scrollY = localStorage.getItem("scrollY");
-  if (scrollY) window.scrollTo(0, parseInt(scrollY));
-});
+// window.addEventListener("load", () => {
+//   const scrollY = localStorage.getItem("scrollY");
+//   if (scrollY) window.scrollTo(0, parseInt(scrollY));
+// });
 window.onload = () => {
   typeWriter();
 };
