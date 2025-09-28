@@ -20,24 +20,6 @@ const mainContainer = document.getElementById("js-main-container");
 const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
 
-// close and show button
-closeButton.addEventListener("click", () => {
-  mainContainer.classList.remove("opacity-100");
-  mainContainer.classList.add("opacity-0");
-
-  setTimeout(() => {
-    mainContainer.classList.add("hidden");
-  }, 700);
-}),
-  showButton.addEventListener("click", () => {
-    mainContainer.classList.remove("hidden");
-
-    setTimeout(() => {
-      mainContainer.classList.remove("opacity-0");
-      mainContainer.classList.add("opacity-100");
-    }, 20);
-  });
-
 // continue button
 continueButton.addEventListener("click", () => {
   document.getElementById("js-connection-container").classList.add("hidden");
