@@ -1,8 +1,7 @@
 const bgImages = [
-  "../../assets/image/background-image-one.jpg",
-  "../../assets/image/background-image-two.jpg",
-  "../../assets/image/background-image-three.jpg",
-  "../../assets/image/background-image-four.jpg",
+  "../assets/image/leewell/carousel/leewell-1.jpg",
+  "../assets/image/leewell/carousel/leewell-2.jpg",
+  "../assets/image/leewell/carousel/leewell-3.jpg",
 ];
 
 const quotes = [
@@ -21,10 +20,26 @@ const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
 const carouselContainer = document.getElementById("js-carousel-container");
 const ecert = document.querySelectorAll(".ecert");
+const closeModalButton = document.getElementById("closeModal");
+const jsHome = document.getElementById("js-home");
+
+if (jsHome) {
+  carouselContainer.classList.add("hidden");
+}
+
+const modal = document.getElementById("modal");
+
+closeModalButton.addEventListener("click", () => {
+  console.log("test");
+  modal.classList.remove("opacity-100");
+  modal.classList.add("opacity-0", "pointer-events-none");
+});
 
 ecert.forEach((item) =>
   item.addEventListener("click", () => {
-    document.getElementById("modal").classList.add("opacity-100");
+    modal.classList.remove("opacity-0", "pointer-events-none");
+    modal.classList.add("opacity-100");
+
     document.getElementById("js-modal-content").src = item.src;
   })
 );
@@ -66,7 +81,7 @@ navButtons.forEach((item, index) => {
       item.classList.remove("flex");
       item.classList.add("hidden");
     });
-    if (index === 1) {
+    if (index === 1 || index === 0) {
       carouselContainer.classList.add("hidden");
     } else {
       carouselContainer.classList.remove("hidden");

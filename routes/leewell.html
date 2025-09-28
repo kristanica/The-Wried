@@ -72,25 +72,25 @@
       id="modal"
       class="h-full flex justify-center items-center w-full bg-black/40 absolute transition-opacity opacity-0 pointer-events-none z-[50]"
     >
-      <div class="">
+      <div class="relative">
         <button
           id="closeModal"
-          class="absolute top-0 right-0 text-white text-2xl p-2"
+          class="absolute top-0 right-0 text-red-500 text-2xl p-2 cursor-pointer z-50"
         >
           X
         </button>
-        <img id="js-modal-content" class="flex flex-1" />
+        <img id="js-modal-content" />
       </div>
     </div>
     <div class="absolute crt w-full h-full z-[999]"></div>
     <h1
-      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute -z-[20]"
       style="font-family: var(--font-header)"
     >
       Leewell
     </h1>
     <h1
-      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl absolute bottom-0 left-0 absolute"
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl absolute bottom-0 left-0 absolute -z-[20]"
       style="font-family: var(--font-header)"
     >
       Le<span class="rotate-180 inline-block">e</span>well
@@ -107,7 +107,7 @@
     <button
       style="font-family: var(--font-header)"
       id="js-show-container"
-      class="mx-auto text-white absolute z-[-1] cursor-pointer hover:underline hover:scale-95 text-xs transition-scale duration-200"
+      class="mx-auto text-white absolute z-[-1] cursor-pointer hover:scale-95 text-xs transition-scale duration-200"
     >
       Did you really just closed it?
     </button>
@@ -145,8 +145,8 @@
           </li>
         </ul>
         <div class="hidden flex-1 bg-[#181715] lg:flex flex-row justify-end">
-          <div class="font-mono text-xs text-gray-400 mt-4 flex flex-row">
-            <p>> Battery: <span class="text-red-400">12%</span></p>
+          <div class="font-mono text-x text-gray-400 mt-4 flex flex-row">
+            <p>> Battery: <span class="text-red-500"> 12% </span></p>
             <p>> Ping: <span class="text-yellow-400">999ms</span></p>
             <p>
               > Signal:
@@ -165,34 +165,42 @@
         <!-- Home -->
 
         <div
-          class="js-tab flex-1 my-4 flex-col flex justify-center items-center opacity-100 transition-opacity duration-300"
+          class="js-tab flex-1 my-4 flex-col flex justify-center items-center opacity-100 transition-opacity duration-300 h-[50%]"
+          id="js-home"
         >
           <div
             id="js-connection-container"
-            class="flex justify-center py-[200px] items-center flex-col"
+            class="flex justify-center h-[500px] items-center flex-col relative"
           >
-            <h1
-              style="font-family: var(--font-header)"
-              class="text-white text-center"
-            >
-              <span class="line-through animate-ping text-red-500">+ </span>
-              Signal acquired.
-              <span class="text-green-400"> Connection </span> unstable. You’ve
-              entered Leewell’s node.
-              <span class="line-through animate-ping text-red-500">+ </span>
-            </h1>
+            <div class="z-1 flex justify-center items-center flex-col">
+              <h1
+                style="font-family: var(--font-header)"
+                class="text-white text-center"
+              >
+                <span class="line-through animate-ping text-red-500">+ </span>
+                Signal acquirted.
+                <span class="text-green-400"> Connection </span> unstable.
+                You’ve entered Leewell’s node.
+                <span class="line-through animate-ping text-red-500">+ </span>
+              </h1>
 
-            <button
-              id="js-continue-button"
-              class="text-white cursor-pointer hover:scale-90 transition-scale duration-300 text-mono"
-            >
-              Press to Continue
-            </button>
+              <button
+                id="js-continue-button"
+                class="text-white z-50 cursor-pointer hover:scale-90 transition-scale duration-300 text-mono"
+              >
+                Press to continue
+              </button>
+            </div>
+
+            <img
+              src="../assets/image/leewell/lain-eye.jpg"
+              class="absolute opacity-20 object-fill"
+            />
           </div>
           <!-- After pressing continue -->
           <div
             id="js-home-container"
-            class="flex hidden flex-col flex-1 opacity-0 transition-opacity duration-300"
+            class="flex hidden flex-col flex-1 opacity-0 transition-opacity duration-300 py-[100px]"
           >
             <div class="flex-[2] flex flex-col justify-center items-center">
               <img src="../assets/image/leewell/LAIN.gif" class="w-40 h-40" />
@@ -209,10 +217,10 @@
                 Student // Programmer
               </h6>
               <p class="text-xs text-justify text-white">
-                - [ SIGNAL ACQUIRED ] -
+                - [ Who doesn't like paramore? ] -
               </p>
             </div>
-            <div class="flex-1">
+            <div class="flex-1 py-5">
               <p class="font-mono text-center px-3 text-white">
                 <span class="text-[#DAC5A6]">Leewell M. Caputol</span> is
                 currently a 4th Year IT Student specialized in Web and Mobile
@@ -237,25 +245,33 @@
             <div class="flex flex-col lg:w-1/3 bg-black/40 p-3">
               <!-- Profile Info -->
               <div
-                class="border-b border-[#69586b] pb-3 max-h-[40%] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="border-b border-[#69586b] pb-3 max-h-[30%] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
                 <div
                   class="flex flex-row items-center border-b border-[#69586b] mb-2 pb-2"
                 >
                   <img
-                    src="../assets/image/profile-image-four.jpg"
+                    src="../assets/image/leewell/carousel/leewell-3.jpg"
                     class="h-24 w-24 object-cover rounded"
                   />
                   <h1
                     style="font-family: var(--font-header)"
                     class="text-white ml-4 font-extrabold"
                   >
-                    Connection To
-                    <span class="line-through text-purple-400"> Node </span>
+                    Connection to
+                    <span class="line-through text-purple-400"> Leewell </span>
                   </h1>
                 </div>
 
                 <ul class="text-white text-sm space-y-2">
+                  <li>
+                    <h3 class="font-bold">
+                      > <i class="fa-solid fa-signal"></i> Name:
+                      <span class="animate-pulse text-blue-400 font-semibold"
+                        >Leewell M. Caputol</span
+                      >
+                    </h3>
+                  </li>
                   <li>
                     <h3 class="font-bold">
                       > <i class="fa-solid fa-signal"></i> Status:
@@ -330,7 +346,7 @@
                   </li>
                   <li>
                     <h3 class="font-bold">
-                      > <i class="fa-solid fa-signal"></i> Signal Strength:
+                      > <i class="fa-solid fa-sigtnal"></i> Signal Strength:
                       <span class="animate-pulse text-green-400"
                         >████<span class="text-gray-500">▒▒▒▒▒▒</span></span
                       >
@@ -355,7 +371,7 @@
 
               <!-- Career Logs -->
               <div
-                class="max-h-[20%] overflow-y-auto mt-3 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+                class="h-[40%] overflow-y-auto mt-3 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
               >
                 <h1
                   style="font-family: var(--font-header)"
@@ -366,17 +382,20 @@
                 <ul class="space-y-1">
                   <li>
                     <p class="text-xs text-gray-400">
-                      [2015] Leewell escaped Elementary
+                      [2015] Leewell escaped Elementary on Lias Elementary
+                      School
                     </p>
                   </li>
                   <li>
                     <p class="text-xs text-gray-400">
-                      [2020] Leewell survived High School
+                      [2020] Leewell survived High School on O'Donnell High
+                      School
                     </p>
                   </li>
                   <li>
                     <p class="text-xs text-gray-400">
-                      [2022] Completed Senior High, barely intact
+                      [2022] Completed Senior High, barely intact on O'Donnell
+                      High School
                     </p>
                   </li>
                   <li>
@@ -421,13 +440,50 @@
                   </li>
                 </ul>
               </div>
-              <div
-                class="h-[40%] max-h-[40%] gap-10 relative flex items-center justify-center"
-              >
-                <img
-                  src="../assets/image/background-image-four.jpg "
-                  class="h-[200px] absolute"
-                />
+              <div class="relative h-[30%] mt-3">
+                <div class="flex flex-wrap absolute">
+                  <h1
+                    style="font-family: var(--font-header)"
+                    class="text-white font-extrabold"
+                  >
+                    Projects i made and currently making
+                  </h1>
+                  <div class="text-white w-[50%] py-2 px-2">
+                    <h3 style="font-family: var(--font-header)">Devlab`</h3>
+                    <p class="text-xs text-gray-400">
+                      - A gamified learning platform for web development using
+                      React Native, Firebase, and NLP-based code evaluation
+                    </p>
+                  </div>
+
+                  <div class="text-white w-[50%] py-2 px-2">
+                    <h3 style="font-family: var(--font-header)">
+                      Procrastiquest
+                    </h3>
+                    <p class="text-xs text-gray-400">
+                      - A MERN stack gamified productivity app where users
+                      complete real-life tasks to fight monsters, earn XP, and
+                      level up like in an RPG.
+                    </p>
+                  </div>
+                  <div class="text-white w-[50%] py-7 px-2">
+                    <h3 style="font-family: var(--font-header)">
+                      Syntethic Archives
+                    </h3>
+                    <p class="text-xs text-gray-400">
+                      - A collaborative project of a minimalist pixel art
+                      gallery for LAIN
+                    </p>
+                  </div>
+                  <div class="text-white w-[50%] py-7 px-2">
+                    <h3 style="font-family: var(--font-header)">
+                      This portfolio
+                    </h3>
+                    <p class="text-xs text-gray-400">
+                      - Well, you're literally looking at it right now
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- Middle Section: About -->
@@ -506,43 +562,43 @@
                   <p class="text-center font-extrabold">[ACCESS LEVELS]</p>
                   <ul class="flex mt-2 flex-col items-center lg:items-start">
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       React Native / Expo
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       React / Vite
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       Express / Firebase
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       HTML / CSS / JS
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       TypeScript
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       Figma
                     </li>
                     <li>
-                      <span class="text-purple-400 font-bold"
+                      <span class="text-purple-400 font-bold animate-pulse"
                         >[PERMISSION GRANTED]:</span
                       >
                       Aseprite
@@ -555,17 +611,27 @@
                   <p class="text-center font-extrabold">[REPEATED TASKS]</p>
                   <ul class="flex mt-2 flex-col items-center lg:items-start">
                     <li>
-                      <span class="text-blue-300 font-bold">[HB1]:</span>
+                      <span class="text-blue-300 font-bold animate-pulse"
+                        >[HB1]:</span
+                      >
                       Aseprite
                     </li>
                     <li>
-                      <span class="text-blue-300 font-bold">[HB1]:</span> Games
+                      <span class="text-blue-300 font-bold animate-pulse"
+                        >[HB1]:</span
+                      >
+                      Games
                     </li>
                     <li>
-                      <span class="text-blue-300 font-bold">[HB1]:</span> Music
+                      <span class="text-blue-300 font-bold animate-pulse"
+                        >[HB1]:</span
+                      >
+                      Music
                     </li>
                     <li>
-                      <span class="text-blue-300 font-bold">[HB1]:</span>
+                      <span class="text-blue-300 font-bold animate-pulse"
+                        >[HB1]:</span
+                      >
                       Podcasts
                     </li>
                   </ul>
@@ -576,18 +642,28 @@
                   <p class="text-center font-extrabold">[TOP TRACKS]</p>
                   <ul class="flex mt-2 flex-col items-center lg:items-start">
                     <li>
-                      <span class="text-green-300 font-bold">[TR1]:</span>
-                      Aseprite
+                      <span class="text-green-300 font-bold animate-pulse"
+                        >[TR1]:</span
+                      >
+                      Conspiracy - Paramore
                     </li>
                     <li>
-                      <span class="text-green-300 font-bold">[TR4]:</span> Games
+                      <span class="text-green-300 font-bold animate-pulse"
+                        >[TR4]:</span
+                      >
+                      Decode - Paramore
                     </li>
                     <li>
-                      <span class="text-green-300 font-bold">[TR3]:</span> Music
+                      <span class="text-green-300 font-bold animate-pulse"
+                        >[TR3]:</span
+                      >
+                      Escape Route - Paramore
                     </li>
                     <li>
-                      <span class="text-green-300 font-bold">[TR5]:</span>
-                      Podcasts
+                      <span class="text-green-300 font-bold animate-pulse"
+                        >[TR5]:</span
+                      >
+                      Oh Star - Paramore
                     </li>
                   </ul>
                 </div>
@@ -598,15 +674,15 @@
               >
                 <img
                   src="../assets/image/leewell/certificates/c1.png"
-                  class="ecert h-40 mx-2"
+                  class="ecert h-40 mx-2 cursor-pointer"
                 />
                 <img
                   src="../assets/image/leewell/certificates/c2.png"
-                  class="ecert h-40 mx-2"
+                  class="ecert h-40 mx-2 cursor-pointer"
                 />
                 <img
                   src="../assets/image/leewell/certificates/c3.png"
-                  class="ecert h-40 mx-2"
+                  class="ecert h-40 mx-2 cursor-pointer"
                 />
                 <img
                   src="../assets/image/leewell/certificates/c4.png"
@@ -614,11 +690,11 @@
                 />
                 <img
                   src="../assets/image/leewell/certificates/c5.png"
-                  class="ecert h-40 mx-2"
+                  class="ecert h-40 mx-2 cursor-pointer"
                 />
                 <img
                   src="../assets/image/leewell/certificates/c6.png"
-                  class="ecert h-40 mx-2"
+                  class="ecert h-40 mx-2 cursor-pointer"
                 />
               </div>
             </div>
@@ -765,94 +841,37 @@
         <!-- Socials -->
 
         <div class="js-tab flex-1 my-4 hidden">
-          <div class="px-5 flex flex-">
-            <div class="flex-2 bg-[#181715] ml-5 px-5 flex-row flex flex-wrap">
-              <div class="flex-1">
-                <h1
-                  style="font-family: var(--font-header)"
-                  class="text-white pr-5 font-extrabold my-3"
-                >
-                  Socials:
-                </h1>
-
-                <ul class="list-none text-white">
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-square-instagram"></i>
-                    Facebook:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@Leewell</a
-                    >
-                  </li>
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-reddit"></i>
-                    Reddit:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@lainqwerty</a
-                    >
-                  </li>
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-square-instagram"></i>
-                    Instagram:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@Leewell</a
-                    >
-                  </li>
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-square-github"></i>
-                    Github:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@lainqwerty</a
-                    >
-                  </li>
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-square-lastfm"></i>
-                    Last FM:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@Leewell</a
-                    >
-                  </li>
-                  <li class="font-mono my-2">
-                    <i class="fa-brands fa-spotify"></i>
-                    Spotify:
-                    <a
-                      href="https://www.facebook.com/leewellinyourarea/"
-                      target="_blank"
-                      >@lainqwerty</a
-                    >
-                  </li>
+          <div class="px-5 flex flex-1">
+            <div class="bg-[#181715] ml-5 px-5 flex-row flex flex-wrap flex-2">
+              <div
+                class="bg-[#121212] text-purple-400 font-mono p-4 mt-4 rounded flex-1"
+              >
+                <h2 class="text-white font-bold mb-2">Identity Nodes</h2>
+                <ul class="list-disc ml-4">
+                  <li>Github → Kristanica</li>
+                  <li>Facebook → @Leewell</li>
+                  <li>Instagram → lwl.lain</li>
+                  <li>LastFM → Kristanica</li>
+                  <li>Spotify → Kristanica</li>
                 </ul>
               </div>
-
-              <div class="flex-1">
-                <div
-                  class="text-pink-300 font-mono p-3 mt-4 rounded animate-pulse"
-                >
-                  <p>Now Playing: "Decode" - Paramore</p>
-                  <p class="italic text-white">"How did we get here?"</p>
-                </div>
-                <div
-                  class="bg-[#121212] text-purple-400 font-mono p-4 mt-4 rounded"
-                >
-                  <h2 class="text-white font-bold mb-2">Identity Nodes</h2>
-                  <ul class="list-disc ml-4">
-                    <li>@lainqwerty → GitHub, Reddit, Spotify</li>
-                    <li>@Leewell → Facebook, Instagram, LastFM</li>
-                    <li>Unknown → Pinged node at 21:50:22</li>
-                  </ul>
-                  <p class="mt-2 italic text-white">
-                    "Everything feels... static."
-                  </p>
-                </div>
+              <div
+                class="bg-[#121212] text-purple-400 font-mono p-4 mt-4 rounded flex-1 ml-2"
+              >
+                <h2 class="text-white font-bold mb-2">Repositories</h2>
+                <ul class="list-disc ml-4">
+                  <li>
+                    Devlab →
+                    <a href="https://guthib.com/" target="_blank">Link</a>
+                  </li>
+                  <li>
+                    Syntethic Archives →
+                    <a href="https://guthib.com/" target="_blank">Link</a>
+                  </li>
+                </ul>
+                <p class="mt-2 italic text-white">
+                  "Everything feels... static."
+                </p>
               </div>
               <div
                 class="mt-8 font-mono text-[#DAC5A6] text-sm bg-black/40 p-4 flex-1 bg-[#121110] h-[500px] lg:h-[300px] text-white min-w-[100%] mb-2 overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
@@ -881,7 +900,7 @@
                     > [21:49:37] Spotify status changed → "Decode" - Paramore
                   </p>
                   <p class="my-2 opacity-40">
-                    > [21:50:22]
+                    > [21:50:22
                     <span class="text-red-400"
                       >Unknown entity pinged the node...</span
                     >
@@ -897,13 +916,13 @@
                     >
                   </p>
                   <p class="my-2 opacity-40">
-                    > [21:47:25]
+                    > [21:47:25]te
                     <span class="text-yellow-400"
                       >Incoming transmission detected</span
                     >
                   </p>
                   <p class="my-2 opacity-40">
-                    > [22:19:37] Private log entry:
+                    > [22:19:37] Private log entetry:
                     <span class="animate-pulse text-purple-400"
                       >"Everything feels... static."</span
                     >
@@ -913,7 +932,7 @@
                     <span class="italic">"just in case"</span>
                   </p>
                   <p class="my-2 opacity-40">
-                    > [22:21:14]
+                    > [22:21:14
                     <span class="text-red-400"
                       >Missed call from an unknown number</span
                     >
@@ -925,7 +944,7 @@
                     >
                   </p>
                   <p class="my-2 opacity-40">
-                    > [22:23:59] Self-ping → response time:
+                    > [22:23:59] teSelf-ping → response time:
                     <span class="text-yellow-400">∞</span>
                   </p>
                   <p class="my-2 opacity-40">
@@ -956,8 +975,6 @@
                   </p>
                 </div>
               </div>
-
-              <!-- full row -->
             </div>
           </div>
         </div>
