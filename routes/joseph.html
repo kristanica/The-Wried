@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-   <style>
+  <style>
     @keyframes glitchEffect {
       0% {
         text-shadow: 2px 0 red, -2px 0 blue;
@@ -38,7 +38,7 @@
     }
   </style>
   <body
-    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen saturate-50"
+    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen"
   >
     <h1
       class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
@@ -85,7 +85,7 @@
           class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer items-center"
         >
           <!-- icon image -->
-          <img src="../assets/image/joseph/icon.jpg" class="h-5 ml-3 w-5" />
+          <img src="../assets/image/joseph/1x1.png" class="h-5 ml-3 w-5" />
 
           <li
             class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
@@ -100,9 +100,8 @@
           <li
             class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
           >
-            Socials
+            Contacts
           </li>
-          
         </ul>
 
         <!-- close button -->
@@ -143,45 +142,55 @@
             id="js-home-container"
             class="flex hidden flex-col flex-1 opacity-0 transition-opacity duration-300"
           >
-            <div class="flex-[2] flex flex-col justify-center items-center">
-              <img src="../assets/image/joseph/icon.jpg" class="w-40 h-40" />
+            <div class="flex-1 flex flex-col justify-center items-center">
+              <img src="../assets/image/joseph/1x1.png" class="w-40 h-40" />
               <h1
                 style="font-family: var(--font-header)"
-                class="text-center text-blue-500 text-2xl mt-5 "
+                class="text-center text-blue-500 text-2xl mt-5"
               >
-              JOSEPH DANIEL CASTRO
+                JOSEPH DANIEL CASTRO
               </h1>
               <h6 class="text-white" style="font-family: var(--font-header)">
                 Student // Programmer
               </h6>
             </div>
             <div class="flex-1">
-
               <!-- about me -->
-                <div class="relative flex-1 border-4 border-white p-6 ml-10">
-                <span class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold ">
+              <div class="relative flex-1 border-4 border-white p-6 ml-10">
+                <span
+                  class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold"
+                >
                   Who Am I?
                 </span>
                 <p class="font-mono text-center text-white text-xl">
-                  I, <span class="text-[#DAC5A6]">Joseph Daniel Castro</span>, am
-                  currently a 4th Year IT Student specialized in Web and Mobile
-                  applications at Tarlac State University, San Isidro Campus.
+                  I, <span class="text-[#DAC5A6]">Joseph Daniel Castro</span>,
+                  am currently a 4th Year IT Student specialized in Web and
+                  Mobile applications at Tarlac State University, San Isidro
+                  Campus.
                 </p>
               </div>
               <br />
 
               <!-- hobbies -->
               <div class="relative flex-1 border-4 border-white p-6 ml-10">
-                <span class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold">
+                <span
+                  class="absolute -top-3 left-3 bg-[#141412] px-2 text-white text-lg font-bold"
+                >
                   Hobbies
                 </span>
-                <p class="font-mono text-center px-3 text-white text-xl">I love to
-                <span class="text-[#DAC5A6]"> play games, watch anime,
-                read manga, </span> and listen to <span class="text-[#DAC5A6]">music</span> during my free time.
-              </p>
+                <p class="font-mono text-center px-3 text-white text-xl">
+                  I love
+                  <span class="text-[#DAC5A6]">coding</span>,
+                  <span class="text-[#DAC5A6]">writing poetry</span>,
+                  <span class="text-[#DAC5A6]">playing games</span>,
+                  <span class="text-[#DAC5A6]">watching anime</span>,
+                  <span class="text-[#DAC5A6]">reading manga</span>, and
+                  <span class="text-[#DAC5A6]">listening to music</span>
+                  during my free time. These activities allow me to balance
+                  creativity, relaxation, and continuous learning in my free
+                  time.
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -190,113 +199,143 @@
           class="js-tab flex-1 my-4 flex-row hidden justify-center items-center"
         >
           <div class="flex flex-col gap-5">
-              <div class="flex flex-wrap justify-center gap-6">
-                <!-- Column 1 -->
-                <div class="flex flex-col items-center">
-                  <h1 class="text-amber-400 text-lg font-bold">CISCO CERTIFICATES</h1>
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/cisco1.png')"
-                  >
-                    <img src="../assets/image/joseph/cisco1.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">
-                      CCNAv7: Introduction to Networks
-                    </p>
-                  </div>
-
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/cisco2.png')"
-                  >
-                    <img src="../assets/image/joseph/cisco2.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">
-                      CCNPv7: Switching, Routing, and Wireless Essentials
-                    </p>
-                  </div>
+            <div class="flex flex-wrap justify-center gap-6">
+              <!-- Column 1 -->
+              <div class="flex flex-col items-center">
+                <h1 class="text-amber-400 text-lg font-bold">
+                  CISCO CERTIFICATES
+                </h1>
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/cisco1.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/cisco1.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">
+                    CCNAv7: Introduction to Networks
+                  </p>
                 </div>
 
-                <!-- Column 2 -->
-                <div class="flex flex-col items-center">
-                  <h1 class="text-amber-400 text-lg font-bold">ONLINE COURSES</h1>
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/js-DICT.png')"
-                  >
-                    <img src="../assets/image/joseph/js-DICT.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">JavaScript Essentials 1</p>
-                  </div>
-
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/na-DICT.png')"
-                  >
-                    <img src="../assets/image/joseph/na-DICT.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">
-                      Network Addressing and Basic Troubleshooting
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Column 3 -->
-                <div class="flex flex-col items-center">
-                  <h1 class="text-amber-400 text-lg font-bold">DICT WEBINARS</h1>
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/dataPrivacy-DICT.png')"
-                  >
-                    <img src="../assets/image/joseph/dataPrivacy-DICT.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">Data Privacy Awareness</p>
-                  </div>
-
-                  <div
-                    class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                    onclick="openCert('../assets/image/joseph/IoT-DICT.png')"
-                  >
-                    <img src="../assets/image/joseph/IoT-DICT.png" class="w-80 h-60" />
-                    <p class="mt-2 text-white text-sm">IoT in Smart Cities</p>
-                  </div>
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/cisco2.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/cisco2.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">
+                    CCNPv7: Switching, Routing, and Wireless Essentials
+                  </p>
                 </div>
               </div>
 
-              <!-- Onclick Display -->
-              <div
-                id="imageContainer"
-                class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden justify-center items-center z-50"
+              <!-- Column 2 -->
+              <div class="flex flex-col items-center">
+                <h1 class="text-amber-400 text-lg font-bold">ONLINE COURSES</h1>
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/js-DICT.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/js-DICT.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">JavaScript Essentials 1</p>
+                </div>
+
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/na-DICT.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/na-DICT.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">
+                    Network Addressing and Basic Troubleshooting
+                  </p>
+                </div>
+              </div>
+
+              <!-- Column 3 -->
+              <div class="flex flex-col items-center">
+                <h1 class="text-amber-400 text-lg font-bold">DICT WEBINARS</h1>
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/dataPrivacy-DICT.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/dataPrivacy-DICT.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">Data Privacy Awareness</p>
+                </div>
+
+                <div
+                  class="flex flex-col items-center m-5 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onclick="openCert('../assets/image/joseph/IoT-DICT.png')"
+                >
+                  <img
+                    src="../assets/image/joseph/IoT-DICT.png"
+                    class="w-80 h-60"
+                  />
+                  <p class="mt-2 text-white text-sm">IoT in Smart Cities</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Onclick Display -->
+            <div
+              id="imageContainer"
+              class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden justify-center items-center z-50"
+              onclick="closeCert()"
+            >
+              <span
+                class="absolute top-5 right-10 text-white text-3xl cursor-pointer"
                 onclick="closeCert()"
+                >&times;</span
               >
-                <span
-                  class="absolute top-5 right-10 text-white text-3xl cursor-pointer"
-                  onclick="closeCert()"
-                  >&times;</span
-                >
-                 <video
-                  id="certVideo"
-                  autoplay
-                  muted
-                  loop
-                  class="absolute inset-0 w-full h-full object-cover blur-lg opacity-20 -z-10"
-                >
-                  <source src="/assets/video/lelouch-bg-video.mp4" type="video/mp4" />
-                </video>
-                <img
-                  id="certImage"
-                  src=""
-                  class="max-w-5xl max-h-[80vh] rounded-lg shadow-lg"
+              <video
+                id="certVideo"
+                autoplay
+                muted
+                loop
+                class="absolute inset-0 w-full h-full object-cover blur-lg opacity-20 -z-10"
+              >
+                <source
+                  src="/assets/video/lelouch-bg-video.mp4"
+                  type="video/mp4"
                 />
-              </div>
+              </video>
+              <img
+                id="certImage"
+                src=""
+                class="max-w-5xl max-h-[80vh] rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
 
-        <!-- Socials -->
+        <!-- Contacts -->
         <div class="js-tab flex-1 my-4 flex-col hidden">
           <div class="px-5 flex flex-row flex-1">
             <!-- Social Media -->
-            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
-              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
+            <div
+              class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3"
+            >
+              <h1
+                class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold"
+              >
                 SOCIAL MEDIA
               </h1>
 
-              <a href="https://www.facebook.com/OfficialGongYoo" target="_blank">
+              <a
+                href="https://www.facebook.com/OfficialGongYoo"
+                target="_blank"
+              >
                 <img
                   src="../assets/image/joseph/fb-icon.png"
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
@@ -314,7 +353,10 @@
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
                 />
               </a>
-              <a href="https://www.instagram.com/gongyoo_official/" target="_blank">
+              <a
+                href="https://www.instagram.com/gongyoo_official/"
+                target="_blank"
+              >
                 <img
                   src="../assets/image/joseph/ig-icon.jpg"
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
@@ -322,19 +364,29 @@
               </a>
             </div>
 
-          <!-- Gaming Platforms -->
-            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
-              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
+            <!-- Gaming Platforms -->
+            <div
+              class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3"
+            >
+              <h1
+                class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold"
+              >
                 GAMING PLATFORMS
               </h1>
 
-              <a href="https://steamcommunity.com/profiles/76561199176749132/" target="_blank">
+              <a
+                href="https://steamcommunity.com/profiles/76561199176749132/"
+                target="_blank"
+              >
                 <img
                   src="../assets/image/joseph/steam-icon.jpg"
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
                 />
               </a>
-              <a href="https://op.gg/lol/summoners/sea/Lux%20Lucis-JayD" target="_blank">
+              <a
+                href="https://op.gg/lol/summoners/sea/Lux%20Lucis-JayD"
+                target="_blank"
+              >
                 <img
                   src="../assets/image/joseph/riot-icon.jpg"
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
@@ -348,10 +400,14 @@
               </a>
             </div>
 
-          <!-- Other Platforms -->
-            <div class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3">
-              <h1 class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold">
-              OTHER PLATFORMS
+            <!-- Other Platforms -->
+            <div
+              class="flex flex-col flex-1 justify-center items-center border-2 border-white relative rounded-2xl m-3"
+            >
+              <h1
+                class="absolute -top-3 bg-[#181715] px-2 text-cyan-400 text-2xl font-bold"
+              >
+                OTHER PLATFORMS
               </h1>
 
               <a href="https://github.com/JayDDDDD" target="_blank">
@@ -366,12 +422,9 @@
                   class="w-30 h-30 mx-5 hover:scale-110 transition-transform duration-300 rounded-lg m-2"
                 />
               </a>
-              
             </div>
-                      
+          </div>
         </div>
-      </div>
-
 
         <!-- Image Carousel -->
         <div class="w-[25%] flex flex-col justify-center my-[30px] px-[40px]">
@@ -396,7 +449,8 @@
             <span
               id="js-quotes"
               class="opacity-100 transition-opacity duration-300"
-              >I am Lelouch vi Britannia. I am the Zero who will change the world</span
+              >I am Lelouch vi Britannia. I am the Zero who will change the
+              world</span
             >
           </h1>
         </div>

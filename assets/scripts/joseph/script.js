@@ -1,8 +1,8 @@
 const bgImages = [
-  "../../assets/image/background-image-one.jpg",
-  "../../assets/image/background-image-two.jpg",
-  "../../assets/image/background-image-three.jpg",
-  "../../assets/image/background-image-four.jpg",
+  "../../assets/image/joseph/mugshot/mugShot-front.png",
+  "../../assets/image/joseph/mugshot/mugShot-left.png",
+  "../../assets/image/joseph/mugshot/mugShot-back.png",
+  "../../assets/image/joseph/mugshot/mugShot-right.png",
 ];
 
 const quotes = [
