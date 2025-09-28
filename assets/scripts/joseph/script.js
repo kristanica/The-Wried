@@ -20,6 +20,7 @@ const mainContainer = document.getElementById("js-main-container");
 const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
 
+// close and show button
 closeButton.addEventListener("click", () => {
   mainContainer.classList.remove("opacity-100");
   mainContainer.classList.add("opacity-0");
@@ -36,6 +37,8 @@ closeButton.addEventListener("click", () => {
       mainContainer.classList.add("opacity-100");
     }, 20);
   });
+
+// continue button
 continueButton.addEventListener("click", () => {
   document.getElementById("js-connection-container").classList.add("hidden");
   document.getElementById("js-home-container").classList.remove("hidden");
@@ -91,7 +94,6 @@ setInterval(() => {
   }, 500);
 }, 4000);
 
-// text above carousel
 const text = "VOCTORIA ULTIMA";
 const speed = 100;
 let x = 0;
