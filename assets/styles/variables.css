@@ -1,6 +1,7 @@
 :root {
   --font-header: "headerFont", sans-serif;
   --font-normal: "normalFont", sans-serif;
+  --Console: "Console", sans-serif;
 }
 @font-face {
   font-family: headerFont;
@@ -9,4 +10,7 @@
 @font-face {
   font-family: normalFont;
   src: url("../../assets/fonts/lain-normalFont.ttf");
+}@font-face{
+  font-family: Console;
+  src: url("../fonts/VT323-Regular.ttf");
 }

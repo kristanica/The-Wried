@@ -3,18 +3,356 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Myke</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles/indexStyle.css" />
     <link rel="stylesheet" href="../assets/styles/variables.css" />
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+
     <script
       src="https://kit.fontawesome.com/566c00e5db.js"
       crossorigin="anonymous"
     ></script>
   </head>
+  <style>
+    @keyframes glitchEffect {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+      20% {
+        text-shadow: -2px -2px lime, 2px 2px #69586b;
+      }
+      40% {
+        text-shadow: 2px 2px #f213de, -2px -2px #c73deb;
+      }
+      60% {
+        text-shadow: -2px 2px cyan, 2px -2px #02c2cc;
+      }
+      100% {
+        text-shadow: none;
+      }
+    }
 
+    #typewriter {
+      animation: glitchEffect 1s infinite reverse;
+    } /* Scanlines overlay */
+    .imag{
+      animation: glitchEffect 1s infinite reverse;
+    }
+
+@keyframes tvFlicker {
+  0%   { filter: brightness(0.65) contrast(1.05); opacity: 0.9; }
+  25%  { filter: brightness(1.7) contrast(1.1); opacity: 1; }
+  50%  { filter: brightness(0.9) contrast(1); opacity: 0.85; }
+  75%  { filter: brightness(1.7) contrast(1.05); opacity: 0.95; }
+  100% { filter: brightness(0.5) contrast(1); opacity: 1; }
+}
+
+.tv-effect {
+  animation: tvFlicker 10s infinite ease-in-out;
+}
+.crt {
+      content: "";
+      position: absolute;
+
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(155, 49, 49, 0.05) 0px,
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 5px,
+        transparent 10px
+      );
+      pointer-events: none;
+
+      animation: scanlines infinite 0.2s linear;
+    }
+    @keyframes scanlines {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 4px;
+      }
+    }
+
+.typewriter-text {
+  display: inline-block;
+  font-family: monospace;
+  white-space: pre-wrap; /* respects line breaks */
+  border-right: 2px solid #B5B8A6; /* cursor */
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+  .blink-bg {
+    background-color: #08cc08;
+    color: black;
+    font-family: var(--Console);
+    animation: blinkBg 0.5s infinite alternate;
+  }
+
+  @keyframes blinkBg {
+    0%   { background-color: #08cc08; color: black; }
+    100% { background-color: transparent; color: #08cc08; }
+  }
+  
+
+
+  </style>
   <body
-    class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
-  ></body>
+    class="relative bg-[#0E0E0E] flex justify-center overflow-hidden items-center min-h-screen saturate-50 "
+  >
+
+    <!-- Custom text on bottom left, feel free to remove -->
+    <h1
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl rotate-180 top-0 right-0 absolute"
+      style="font-family: var(--font-header)"
+    >
+      Myke
+    </h1>
+
+    <!-- Custom text on top right, feel free to remove -->
+
+    <h1
+      class="blur-sm text-[#B5B8A6] text-4xl sm:text-6xl md:text-9xl absolute bottom-0 left-0"
+      style="font-family: var(--font-header)"
+    >
+      666
+    </h1>
+
+    <!-- Palitan nyo ng preferred nyong vid, eto yung bg -->
+    <video
+      autoplay
+      muted
+      loop
+      id="js-background-video"
+      class="absolute inset-0 blur-lg bg-cover bg-center opacity-20 min-h-screen overflow-hidden min-w-screen transition-opacity duration-500 z-[-1]"
+    >
+      <source src="../assets/video/lain-background-video-test.mp4" type="video/mp4" />
+    </video>
+
+    <div
+      id="js-main-container"
+      class="opacity-100 transition-opacity duration-300 my-[10px] mt-2 shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)] w-[40%] sm:w-[40%] md:w-[90%] bg-[#141412] justify-between flex flex-col md:flex-col sm:flex-col"
+    >
+      <!-- Navigation -->
+      <nav
+        class="w-full bg-[#181715] flex shadow-[0px_5px_5px_0px_rgba(0,0,0,0.75)]"
+      >
+        <ul
+          class="text-[#B5B8A6] flex flex-1 py-3 flex-row cursor-pointer items-center"
+        >
+          <img src="../assets/image/leewell/icon.gif" class="h-5 ml-3 w-5" />
+
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Home
+          </li>
+          <li
+            class="hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            About
+          </li>
+          <li
+            class="mx-4 hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Contact
+          </li>
+          <li
+            class="hover:underline hover:scale-90 transition-scale duration-300"
+          >
+            Certificates
+          </li>
+        </ul>
+      </nav>
+      <div class="flex-1 flex flex-col p-2 sm:flex-row md:flex-row border border-red-5  ">
+        <!-- Home -->
+        <div
+          class="js-tab flex-1 my-4 flex-col flex opacity-100 transition-opacity duration-300 border rounded-2xl bg-[#1A1C1D] tv-effect relative">
+          <div class="absolute crt w-full h-full z-[1] rounded-xl "></div>
+          <div class="p-20 md:p-10 sm:p-5">
+          <h1 style="font-family: var(--font-header)" class="text-[#A3B5A8] text-7xl"><span class="text-red-700">Mike </span>Brian G. Mayo </h1>
+          <p  id="typewriter-text" class=" typewriter-text text-lg text-[#A3B5A8] mt-5 whitespace-pre-line " style="font-family: var(--font-header)">I am Mike, a 4th-year BSIT student at Tarlac State University,<br> majoring in Web and Mobile Applications.</p> <br>
+          <p  class="typewriter-text text-2xl text-[#A3B5A8] mt-5" style="font-family: var(--font-header)">Age: <span>21</span></p> <br>
+          <p  class="typewriter-text text-2xl text-[#A3B5A8] " style="font-family: var(--font-header)">Location: <span>Paniqui, Tarlac</span></p>
+          </div>
+          <img src="../assets/image/MikeImage/ErenBg.png" alt=""  class="absolute bottom-0 right-0 max-w-[70%] md:max-w-[50%] lg:max-w-[40%] h-auto z-[0]">
+        </div>
+        <!-- About -->
+
+<div class="js-tab flex-1 flex-col my-4 hidden">
+  <div class="w-[100%] h-[40%] bg-[#0E0E0E] flex justify-around">
+        <div class="p-4">
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">=================================================</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00] text-lg"> > Mykee-E MONITOR    VERSION 1.11   11-FEB-2004</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">=================================================</p>
+
+          <h1 style="font-family: var(--Console);" class="text-[#00FF00]">// User/Info...</h1>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">- UserName            : Mykeee</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">- CreatedAt           : FEB-11-2004</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">- Status              : Exploring</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">- EnrolledAt          : Tarlac State University</p>
+          <p style="font-family: var(--Console);" class="text-[#00FF00]">- Major               : Web and Mobile App</p>
+        </div>
+    <div class="p-4">
+      <h1 style="font-family: var(--Console);" class="text-[#00FF00]">// User/Info/Others...</h1>
+      <p style="font-family: var(--Console);" class="text-[#00FF00]">- Memory Intern  : 4MB</p>
+      <p style="font-family: var(--Console);" class="text-[#00FF00]">- Power Mode     : Active</p>
+      <p style="font-family: var(--Console);" class="text-[#00FF00]">- Focus          : Full-stack Web Dev</p>
+      <p style="font-family: var(--Console);" class="text-[#00FF00]">- Buffs          : Code Whisper, Debug Vision</p>
+      <p style="font-family: var(--Console);" class="text-[#00FF00]">- Future Path    : AI + Gamified Learning</p>
+            <h1 style="font-family: var(--Console);" class="text-[#00FF00]">// User/Info/Others/TechStack...</h1>
+              <p style="font-family: var(--Console);" class="text-[#00FF00]">- HTML // CSS // JAVASCRIPT // REACT</p>
+            <p></p>
+    </div>
+
+    <div class=" p-4">
+      <pre class="text-[#00FF00] font-mono text-sm leading-none">
+//////////////////////////////////////////////////
+</pre>
+<div class="text-[#00FF00] font-mono text-sm p-4 text-center">
+  <!-- Your Image -->
+  <img src="../assets/image/MikeImage/X44z.gif" alt="Avatar" 
+      class="w-32 h-32 mx-auto border border-[#00FF00]" />
+
+</div>
+
+<pre class="text-[#00FF00] font-mono text-sm leading-none">
+//////////////////////////////////////////////////
+</pre>
+    </div>
+  </div>
+
+<div class=" p-2 h-[100%] bg-[#0E0E0E] mt-2 flex flex-col ">
+  <div class="h-full w-full" style="font-family: var(--Console);">
+    <div class="blink-bg w-[10%] text-xl text-center mt-2">// HOBBY</div>
+    <p class="text-[#00FF00]  bg-[#2e2e2e] mt-2 p-2 rounded-sm">[Mykeee] is someone who enjoys spending free time playing online games such as Dota 2, Valorant, and CS:GO. When not gaming, they’re often watching shows like Game of Thrones or catching up on anime like One Piece. Music is also a big part of their routine, whether it’s for relaxing or staying motivated.</p>
+      <div class="blink-bg text-xl w-[10%] text-center mt-2">// VALUES</div>
+    <p class="text-[#00FF00]  bg-[#2e2e2e] mt-2 p-2 rounded-sm">[Mykeee] is curious, determined, and enjoys learning new things. They value creativity, teamwork, and always doing their best in everything they do.</p>
+        <div class="blink-bg text-xl w-[10%] text-center mt-2">// GOAL</div>
+    <p class="text-[#00FF00]  bg-[#2e2e2e] mt-2 p-2 rounded-sm">[Mykeee] goal is to graduate, enhance development skills, and secure a job in the tech industry. [Mykeee] aim to keep improving through learning and practical experience, turning  passion for technology, gaming, and creativity into meaningful opportunities.</p>
+    <p class="text-[#00FF00] mt-2 self-end typewriter-text" style="font-family: var(--Console);" >C:\Users\Mykeee ></p>
+
+  </div>
+</div>
+
+
+</div>
+
+        <!-- Contact -->
+<div class="js-tab flex-1 my-4 flex-col hidden justify-between">
+  <div class="h-[100%] p-4 bg-[#0E0E0E]  rounded-lg flex flex-col">
+
+    <!-- Terminal header -->
+    <div class="flex items-center space-x-2 mb-4">
+      <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+      <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+      <div class="text-[#00FF00] font-mono text-xl ml-2" style="font-family: var(--Console);">// CONTACT</div>
+    </div>
+
+    <!-- Terminal content -->
+    <div class="flex-1 bg-[#1E1E1E] p-4 rounded-lg overflow-auto font-mono text-[#00FF00] text-lg space-y-3" style="font-family: var(--Console);">
+
+      <p><span class="text-[#888888]">[INFO]</span> Initializing contact protocol...</p>
+      <p><span class="text-[#888888]">[OK]</span> Connection established</p>
+      <p><span class="text-[#888888]">> Email:</span> mikemayo482@gmail.com</p>
+      <p><span class="text-[#888888]">> Phone:</span> +63 909 182 5537</p>
+      <p><span class="text-[#888888]">> FaceBook:</span> facebook.com/MykeeeMayk/</p>
+      <p><span class="text-[#888888]">> GitHub:</span> github.com/PowaAaAaaaaaaaaaA</p>
+      <p><span class="text-[#888888]">[STATUS]</span> Contact information loaded successfully</p>
+      <p><span class="text-[#888888]">[INFO]</span> For project inquiries, use the email or LinkedIn link above.</p>
+      <p><span class="text-[#888888]">[TIP]</span> You can also clone my repositories for examples of my work.</p>
+      <p><span class="text-[#888888]">[LOG]</span> Last connection: 2025-09-27 21:42:15</p>
+      <p class="text-[#00FF00] self-end typewriter-text" style="font-family: var(--Console); " >C:\Users\Mykeee ></p>
+    </div>
+
+    <!-- Terminal footer -->
+    <div class="text-[#00FF00] font-mono text-sm mt-4">
+      <span class="blink">_</span> Type <span class="text-[#ffffff]" style="font-family: var(--Console);">help contact</span> for more info
+    </div>
+
+  </div>
+</div>
+
+        <!-- Certs -->
+
+<div class="js-tab flex-1 my-4 flex-col hidden justify-between" style="font-family: var(--Console);">
+  <!-- Header -->
+  <div class="bg-[#00FF00] p-2">
+    <h1 class="text-2xl text-black">// USER_E-CERT_GALLERY</h1>
+  </div>
+  <!-- Gallery Container -->
+  <div class="flex flex-col md:flex-row gap-4 border border-[#00FF00] p-4 bg-black h-full">
+    
+    <!-- Sidebar (Certificates List) -->
+    <div class="w-full md:w-1/4 flex flex-col gap-3 text-[#00FF00]">
+      <button class="border border-[#00FF00] px-3 py-2 hover:bg-[#00FF00] hover:text-black transition"
+              onclick="showCertificate('../assets/image/MikeImage/E-Cert1.png')">
+        [1] Certificate A
+      </button>
+      <button class="border border-[#00FF00] px-3 py-2 hover:bg-[#00FF00] hover:text-black transition"
+              onclick="showCertificate('../assets/image/MikeImage/E-Cert2.png')">
+        [2] Certificate B
+      </button>
+      <button class="border border-[#00FF00] px-3 py-2 hover:bg-[#00FF00] hover:text-black transition"
+              onclick="showCertificate('../assets/image/MikeImage/E-Cert3.png')">
+        [3] Certificate C
+      </button>
+      <button class="border border-[#00FF00] px-3 py-2 hover:bg-[#00FF00] hover:text-black transition"
+              onclick="showCertificate('../assets/image/MikeImage/E-Cert4.png')">
+        [4] Certificate D
+      </button>
+      <button class="border border-[#00FF00] px-3 py-2 hover:bg-[#00FF00] hover:text-black transition"
+              onclick="showCertificate('../assets/image/MikeImage/E-Cert5.png')">
+        [5] Certificate E
+      </button>
+    </div>
+    <!-- Display Panel -->
+<div id="displayPanel" 
+    class="flex-1 flex items-center justify-center border border-[#00FF00] bg-[#0a0a0a] bg-center bg-contain bg-no-repeat">
+  <p class="text-[#00FF00]">>> Select a certificate from the list</p>
+</div>
+  </div>
+</div>
+
+
+        <!-- Image Carousel, feel free to remove this -->
+        <div
+          id="js-carousel-container"
+          class="flex flex-col justify-center my-[30px] px-[40px]"
+        >
+          <h1
+            class="z-50 sm:text-[10px] md:text-2xl text-white text-center"
+            style="font-family: var(--font-header)"
+          >
+            <span id="typewriter"></span>
+          </h1>
+          <div class="flex justify-start items-end mt-5">
+            <div
+              id="image-carousel"
+              class="shadow-[0_0_20px_rgba(255,255,255,0.1)] z-[2] bg-contain bg-center bg-no-repeat rounded-lg h-128 w-84 mx-auto opacity-100 transition-opacity duration-1000 ease-in-out"
+            ></div>
+          </div>
+          <h1
+            id="glitch"
+            class="text-xl sm:text-2xl md:text-xs mt-5 text-white animate-pulse text-center"
+            style="font-family: var(--font-header)"
+          >
+            <span
+              id="js-quotes"
+              class="opacity-100 transition-opacity duration-300"
+              >Reality hums, distorted by static</span
+            >
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Palitan nyo kung san naka point yung script nyo -->
+    <script src="../assets/scripts/Mike/MikeScript.js"></script>
+  </body>
 </html>
-<!--  -->
