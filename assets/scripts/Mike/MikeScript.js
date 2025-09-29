@@ -1,8 +1,8 @@
 //Palitan nyo ng sarili nyong image kung gusto nyo ikeep yung image carousel
 const bgImages = [
-  "../assets/image/MikeImage/AcIIMike.png",
-  "../assets/image/MikeImage/111.jpg",
-  "../assets/image/MikeImage/AcIIMike.png",
+  "../assets/image/Mike/AcIIMike.png",
+  "../assets/image/Mike/ProfilePic.jpg",
+  "../assets/image/Mike/AcIIMike.png",
 ];
 
 
@@ -57,7 +57,7 @@ setInterval(() => {
 }, 4000);
 
 //eto yung nag gglitch na text, feel free to remove/change
-const text = "Valar Morghulis";
+const text = "Beyond the Wall";
 const speed = 100;
 let x = 0;
 
