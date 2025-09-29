@@ -15,9 +15,7 @@ const quotes = [
 
 const carousel = document.getElementById("image-carousel");
 const continueButton = document.getElementById("js-continue-button");
-const closeButton = document.getElementById("js-close-button");
 const mainContainer = document.getElementById("js-main-container");
-const showButton = document.getElementById("js-show-container");
 const convoBox = document.querySelectorAll(".js-convo-box");
 
 // continue button
@@ -30,8 +28,8 @@ continueButton.addEventListener("click", () => {
   }, 50);
 });
 
+// tab navigation
 const containers = document.querySelectorAll(".js-tab");
-
 const navButtons = document.querySelectorAll("li");
 navButtons.forEach((item, index) => {
   item.addEventListener("click", () => {
@@ -67,6 +65,7 @@ containers.forEach((item, index) => {
 
 let i = 0;
 
+//Carousel
 carousel.style.backgroundImage = `url(${bgImages[i]})`;
 
 setInterval(() => {
@@ -99,6 +98,7 @@ window.onload = () => {
   typeWriter();
 };
 
+// certificate viewer
 function openCert(img) {
   document.getElementById("certImage").src = img;
   document.getElementById("imageContainer").classList.remove("hidden");
