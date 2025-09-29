@@ -1,19 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="assets/styles/indexStyle.css" />
-    <link rel="stylesheet" href="assets/styles/variables.css" />
-    <script
-      src="https://kit.fontawesome.com/566c00e5db.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandara Nicole Portfolio</title>
 
-  <body
-    class="flex justify-between py-32 flex-col relative items-center min-h-screen overflow-hidden transition-all duration-300 bg-[#0E0E0E] bg-center bg-no-repeat bg-cover"
-  ></body>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="sandy.css" />
+
+  <script src="https://kit.fontawesome.com/566c00e5db.js" crossorigin="anonymous"></script>
+
+  <style>
+  
+    body {
+      font-family: 'Space Mono', monospace;
+    }
+  </style>
+</head>
+<body class="relative bg-[#0E0E0E] text-white overflow-x-hidden">
+
+  <video autoplay muted loop id="js-background-video"
+         class="absolute inset-0 blur-lg bg-cover bg-center opacity-20 min-h-screen min-w-screen z-[-1]">
+    <source src="https://assets.codepen.io/3/lain-background-video.mp4" type="video/mp4" />
+  </video>
+
+<div id="sparkle-container"></div>
+<script>
+  function createSparkle() {
+    const sparkle = document.createElement('div');
+    const size = Math.random() * 8 + 3; 
+    sparkle.style.width = sparkle.style.height = size + 'px';
+    sparkle.style.background = 'white';
+    sparkle.style.borderRadius = '50%';
+    sparkle.style.position = 'fixed';
+    sparkle.style.left = Math.random() * window.innerWidth + 'px';
+    sparkle.style.top = Math.random() * window.innerHeight + 'px';
+    sparkle.style.opacity = 0.8 + Math.random() * 0.2; 
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.zIndex = 0;
+    sparkle.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.style.transform = `translateY(-150px) scale(0)`;
+      sparkle.style.opacity = 0;
+    }, 50);
+
+    setTimeout(() => sparkle.remove(), 1500);
+  }
+
+  setInterval(() => {
+    for(let i = 0; i < 3; i++){ 
+      createSparkle();
+    }
+  }, 300); 
+</script>
+
+  <header class="sticky top-0 z-50 bg-[#181715] shadow-md">
+    <nav class="container mx-auto flex justify-between items-center py-3 px-4">
+      <img src="sandyimg.jpg" alt="Logo" class="h-10 w-10" />
+      <ul class="flex gap-6 text-[#B5B8A6] font-semibold cursor-pointer">
+        <li class="nav-link" data-target="#home">Home</li>
+        <li class="nav-link" data-target="#about">About</li>
+        <li class="nav-link" data-target="#projects">Hobbies</li>
+        <li class="nav-link" data-target="#contact">Contact</li>
+        <li class="nav-link" data-target="#socials">Socials</li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home"
+  class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 bg-[#0E0E0E] text-white">
+
+  <div class="md:w-1/2 space-y-6 text-center md:text-left">
+    <p class="text-yellow-400 font-medium tracking-wide">INFORMATION TECHNOLOGY STUDENT</p>
+
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+  <span id="animated-intro">
+    Hi, I'm <span class="text-blue-400">Sandara Nicole!</span><br>
+   A Curious Mind in the Digital World
+  </span>
+</h1>
+
+    <p class="text-gray-300 text-lg md:text-xl">
+      Passion guides me through challenges, turning every experience into a step forward.
+    </p>
+
+    <a href="#projects"
+       class="inline-block bg-green-500 hover:bg-green-600 text-black font-semibold px-7 py-3 rounded-full transition">
+       View More
+    </a>
+  </div>
+
+  <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+    <img src="sandyimg.jpg"
+         alt="Profile Picture"
+         class="rounded-full w-48 h-48 border-4 border-gray-300 shadow-lg object-cover" />
+  </div>
+
+</section>
+
+
+  <section id="about" class="min-h-screen flex flex-col justify-center items-center px-4 md:px-20">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-center">About Me</h2> <br>
+    <p class="text-lg md:text-xl leading-relaxed max-w-4xl text-center">
+      I am Sandara Nicole B. Sarmiento, a 21-year-old Information Technology student at Tarlac State University. 
+      I am passionate about technology and dedicated to building innovative, efficient, and user-friendly software solutions.
+      Throughout my academic journey, I have gained strong skills in programming, web development, and system management, 
+      and I continuously seek to expand my knowledge in emerging technologies.
+      As a future developer, I aim to contribute meaningful and practical solutions to the tech community while honing 
+      my abilities in full-stack development and interactive applications.
+    </p>
+  </section>
+
+<section id="projects" class="min-h-screen px-4 md:px-20 py-10 bg-[#141412]">
+  <h2 class="text-3xl md:text-5xl font-bold mb-8 text-center text-white">Hobbies</h2>
+
+  <div class="hobby-grid">
+
+    <div class="hobby-card">
+      <img src="sit1.jpg" alt="Streaming Music">
+      <div class="hobby-description">
+        One of my favorite hobbies is streaming music on Spotify. While listening, I often find myself reflecting on life’s moments, 
+        feeling emotions more deeply, and discovering new perspectives.
+      </div>
+    </div>
+
+    <div class="hobby-card">
+      <img src="stand1.jpg" alt="Watching Films">
+      <div class="hobby-description">
+        I love watching films that linger in the mind—stories that speak of life’s truths, struggles, and beauty. Through each scene, I explore emotions and perspectives, learning more about the world and myself.
+      </div>
+    </div>
+
+    <div class="hobby-card">
+      <img src="run1.jpg" alt="Running and Walking">
+      <div class="hobby-description">
+        I find peace in running and walking, letting each step guide my thoughts. With the wind brushing my face, I explore ideas, reflect on life, and breathe in clarity. Every path becomes a journey within and without.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <section id="contact" class="min-h-screen flex flex-col justify-center px-4 md:px-20 py-10">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-center">Contact Me</h2> <br>
+    <p class="text-lg md:text-xl text-center mb-4">Phone: 09452448858</p>
+    <p class="text-lg md:text-xl text-center">Email: sandaranicolesarmiento@gmail.com</p>
+  </section>
+
+<section id="socials" class="min-h-screen flex flex-col justify-center px-4 md:px-20 py-10 bg-[#141412]">
+  <h2 class="text-3xl md:text-5xl font-bold mb-6 text-center">Connect With Me</h2>
+  <br>
+  <div class="flex justify-center gap-8 text-3xl">
+    <a href="https://www.facebook.com/share/1ARb2qMfC4/?mibextid=wwXIfr" target="_blank">
+      <i class="fab fa-facebook-f hover:text-blue-500 transition-all"></i>
+    </a>
+    <a href="https://www.instagram.com/sandara.ncl?igsh=MWVhandsN285eHphaA%3D%3D&utm_source=qr" target="_blank">
+      <i class="fab fa-instagram hover:text-pink-500 transition-all"></i>
+    </a>
+    <a href="https://m.me/Sandara.B.Sarmiento/" target="_blank">
+      <i class="fab fa-facebook-messenger hover:text-blue-400 transition-all"></i>
+    </a>
+  </div>
+</section>
+
+
+  <script src="sandy.js"></script>
+</body>
 </html>
